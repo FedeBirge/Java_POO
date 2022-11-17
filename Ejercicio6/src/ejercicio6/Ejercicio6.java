@@ -5,6 +5,10 @@
  */
 package ejercicio6;
 
+import Entidad.Cafetera;
+import Servicio.CafeteraService;
+import java.util.Scanner;
+
 /**
  *
  * @author feder
@@ -15,7 +19,17 @@ public class Ejercicio6 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner scan = new Scanner(System.in);
+      CafeteraService cafeserv = new CafeteraService();
+      Cafetera caf =cafeserv.llenarCafetera();
+        System.out.println("Ingrese el tamaño de la taza a llenar: ");
+        cafeserv.servirTaza(caf, scan.nextInt());
+        System.out.println(caf);
+        cafeserv.vaciarCafetera(caf);
+        System.out.println(caf);
+        System.out.println("Ingrese una cantidad de café para cargar: ");
+        cafeserv.agregarCafe(caf,scan.nextInt());
+          System.out.println(caf);
     }
     
 }
