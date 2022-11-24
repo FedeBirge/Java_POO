@@ -122,6 +122,14 @@ public class CadenaService {
             }
           cad.setFrase(aux);  
         }
+    public boolean contiene(Cadena cad, String letra){
+        if (cad.getFrase().contains(letra)){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
     
 
 }

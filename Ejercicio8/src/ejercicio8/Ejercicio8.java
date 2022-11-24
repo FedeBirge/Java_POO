@@ -40,6 +40,14 @@ public class Ejercicio8 {
         System.out.println(cad.getFrase());
         cadServ.reemplazar(cad);
        System.out.println(cad.getFrase());
+        System.out.println("Ingrese un caracter para saber si esta dentro de la frase: ");
+        if(cadServ.contiene(cad, scan.next())){
+            System.out.println("LA cadena contiene el caracter");
+        }
+        else{
+            System.out.println("La cadena NO contiene el caracter");
+        }
+                
     }
     
 }
