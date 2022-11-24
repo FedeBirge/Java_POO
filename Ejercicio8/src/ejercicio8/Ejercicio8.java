@@ -27,7 +27,7 @@ public class Ejercicio8 {
         System.out.println(cad.getFrase());
         System.out.println("Ingrese una caracter: ");
         String car= scan.next();
-        System.out.println("el caracter se repite: "+cadServ.vecesRepetido(cad, car)+" veces");
+        System.out.println("El caracter se repite: "+cadServ.vecesRepetido(cad, car)+" veces");
         System.out.println("Ingrese una frase: ");
         if (cadServ.compararLongitud(cad, scan.next())){
             System.out.println("Tienen la misma longitud ");
@@ -35,6 +35,11 @@ public class Ejercicio8 {
         else{
             System.out.println("NO tienen la misma longitud");
             }
+        System.out.println("Ingrese una frase: ");
+        cadServ.unirFrases(cad, scan.next());
+        System.out.println(cad.getFrase());
+        cadServ.reemplazar(cad);
+       System.out.println(cad.getFrase());
     }
     
 }

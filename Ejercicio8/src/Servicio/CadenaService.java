@@ -22,6 +22,7 @@ import java.util.Scanner;
 //d) Entrada: frase = "casa blanca". Salida: El carácter 'a' se repite 4 veces.
 //e) Método compararLongitud(String frase), deberá comparar la longitud de la frase que 
 //compone la clase con otra nueva frase ingresada por el usuario.
+
 //f) Método unirFrases(String frase), deberá unir la frase contenida en la clase Cadena con 
 //una nueva frase ingresada por el usuario y mostrar la frase resultante.
 //g) Método reemplazar(String letra), deberá reemplazar todas las letras “a” que se 
@@ -102,12 +103,25 @@ public class CadenaService {
     }
 
     public boolean compararLongitud(Cadena cad, String frase) {
-        if (cad.getLonguitud() == frase.length()) {
-            return true;
-        } else {
-            return false;
-        }
+        return cad.getLonguitud() == frase.length();
     }
-    public void unirFrases(Cadena cad, String frase)
+    public void unirFrases(Cadena cad, String frase){
+        cad.setFrase(cad.getFrase().concat(frase));
+        cad.setLonguitud(cad.getFrase().length());
+        
+    }
+    public void reemplazar(Cadena cad){
+        String aux="";
+        for (int i = 0; i < cad.getLonguitud(); i++) {
+            if(cad.getFrase().substring(i, i + 1).equalsIgnoreCase("a")){
+                aux+="#";}
+                else {
+                        aux+=cad.getFrase().substring(i, i + 1);
+                        }    
+                
+            }
+          cad.setFrase(aux);  
+        }
+    
 
 }
