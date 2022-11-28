@@ -22,7 +22,9 @@ public class Ejercicio12 {
        PersonaService serv = new PersonaService();
        serv.crearPersona(per);
         System.out.println("");
-        System.out.println("LA edad es:"+serv.calcularEdad(per));
+        System.out.println("La edad es:"+serv.calcularEdad(per));
+         System.out.println("");
+        serv.mostrarPesona(per);
        
     }
     

@@ -34,14 +34,14 @@ public class PersonaService {
 
         System.out.println("Ingrese el nombre de la persona: ");
         per.setNombre(scan.next());
-        System.out.println("Ingrese fecha de nacimineto: ");
+        System.out.println("***fecha de nacimineto***");
         System.out.println("Ingrese un anio: ");
         anio = scan.nextInt();
         System.out.println("Ingrese un mes: ");
         mes = scan.nextInt();
         System.out.println("Ingrese un dia: ");
         dia = scan.nextInt();
-        java.util.Date fecha = new java.util.Date(anio - 1900, mes, dia);
+        Date fecha = new Date(anio - 1900, mes-1, dia);
         per.setFecha(fecha);
     }
     public int calcularEdad(Persona per){
@@ -52,6 +52,12 @@ public class PersonaService {
         else {
             return (fechaAc.getYear()-per.getFecha().getYear());
         }
+    }
+    public boolean menorQue(Persona pers,int edad){
+        return  calcularEdad(pers)< edad;
+    }
+    public void mostrarPesona(Persona pers){
+        System.out.println(pers);
     }
 
 }
