@@ -57,7 +57,7 @@ public class ServiceAhorcado {
             if (letra.equalsIgnoreCase(ah.getPalabra()[i])) {
 
                 enc = true;
-                ah.setEncontradas(ah.getEncontradas() + 1);
+                ah.setEncontradas(ah.getEncontradas()+1);
             }
         }
         if (!enc) {
