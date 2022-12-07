@@ -5,9 +5,10 @@
  */
 package extrareloj;
 
-import Entidad.Tiempo;
+
 import Servicio.ServiceTiempo;
-import java.util.Timer;
+
+
 
 
 /**
@@ -27,12 +28,14 @@ public class ExtraReloj {
      *
      *
      * @param args
-     */
+     * @throws java.lang.InterruptedException
+       */
     public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
         ServiceTiempo serTiem = new ServiceTiempo();
         
         serTiem.reloj();
+       
 
         
 

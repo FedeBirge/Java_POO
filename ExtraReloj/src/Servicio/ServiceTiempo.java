@@ -6,6 +6,8 @@
 package Servicio;
 
 import Entidad.Tiempo;
+import java.util.ArrayList;
+
 import java.util.Scanner;
 
 /**
@@ -50,10 +52,33 @@ public class ServiceTiempo {
 
         } while (!(tiempo.getHs() == 24));
     }
+    public static void limpiarPantalla(){
+        try {
+          
+            String sistemaOperativo = System.getProperty("os.name");
+            ArrayList<String> comando= new ArrayList<>();
+            if(sistemaOperativo.contains("Windows")){        
+                comando.add("cmd");
+                comando.add("/C");
+                comando.add("cls");
+                
+            } else {
+                comando.add("clear");
+            } 
+            
+            ProcessBuilder pb = new ProcessBuilder(comando);
+            Process iniciarProceso = pb.inheritIO().start();
+            iniciarProceso.waitFor();
+            
+        } catch (Exception e) {
+            System.out.println("Error al limpiar la pantalla"+e.getMessage());
+        }
+    }
 
-    public void reloj() throws InterruptedException {
+    public void reloj() throws InterruptedException  {
         Tiempo tiempo = crearTiempo();
         while (true) {
+            limpiarPantalla();
             System.out.println(tiempo.toString());
             Thread.sleep(1000);
             if (tiempo.getSeg() == 59) {
@@ -73,7 +98,6 @@ public class ServiceTiempo {
             } else {
                 tiempo.setSeg(tiempo.getSeg() + 1);
             }
-          
             
         }
     }
