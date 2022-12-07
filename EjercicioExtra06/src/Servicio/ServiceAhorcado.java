@@ -42,9 +42,14 @@ public class ServiceAhorcado {
             vec[i] = aux.substring(i, i + 1);
         }
         ah.setPalabra(vec);
+        do{
         System.out.println("Ingrese la cantidad máxima de jugadas: ");
         ah.setJugadasMax(scan.nextInt());
         ah.setEncontradas(0);
+        if(ah.getJugadasMax()< ah.getPalabra().length){
+            System.out.println("La cantidad no puede ser menor a la longitud de la palabra");
+        }
+        }while (ah.getJugadasMax()< ah.getPalabra().length);
     }
 
     public int longitud(Ahorcado ah) {
@@ -104,7 +109,7 @@ public class ServiceAhorcado {
                 break;
             } 
             else {
-                System.out.println("");
+                
                 System.out.println("Número de oportunidades restantes: " + intentos(ah));
             }
             if(ah.getEncontradas() >= longitud(ah)){
