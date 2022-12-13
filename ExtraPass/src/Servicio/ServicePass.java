@@ -65,7 +65,7 @@ public class ServicePass {
         do {
             System.out.println("Ingrese contraseña para modificar su nombre:");
             if (p.getPass().equals(scan.next())) {
-                System.out.println("Contraseñana correcta!");
+                System.out.println("Contraseña correcta!");
                 System.out.println("Ingrese su nombre: ");
                 p.setNombre(scan.next());
                 break;
@@ -79,7 +79,7 @@ public class ServicePass {
         do {
             System.out.println("Ingrese contraseña para modificar su DNI:");
             if (p.getPass().equals(scan.next())) {
-                System.out.println("Contraseñana correcta!");
+                System.out.println("Contraseña correcta!");
                 System.out.println("Ingrese su DNI: ");
                 p.setDni(scan.nextInt());
                 break;

@@ -22,15 +22,15 @@ public class Pass {
     private int dni;
 
     public Pass() {
-        this.pass = "pazsworda";
+        this.pass = "holamessi";
         this.nombre = "Juancito";
         this.dni = 15487454;
     }
 
     public Pass(String pass, String nombre, int dni) {
-        this.pass = "password";
-        this.nombre = "Juancito";
-        this.dni = 15487454;
+        this.pass = pass;
+        this.nombre = nombre;
+        this.dni = dni;
     }
 
     public String getPass() {
