@@ -15,8 +15,8 @@ package Entidad;
 //los métodos getters y setters correspondientes, y el método imprimirHoraCompleta().
 //Recordar crear una validación sobre las horas, minutos y 
 //segundos ingresados por el usuario. Te animas a simular el paso del tiempo en consola??????
-
 public class Tiempo {
+
     private int hs;
     private int min;
     private int seg;
@@ -33,7 +33,6 @@ public class Tiempo {
     public int getHs() {
         return hs;
     }
-
 
     public void setHs(int hs) {
         this.hs = hs;
@@ -54,10 +53,27 @@ public class Tiempo {
     public void setSeg(int seg) {
         this.seg = seg;
     }
-    
+
     @Override
     public String toString() {
-        return "Tiempo: " + hs + " : " + min + " : " + seg ;
+        String auxH, auxM,auxS;
+        if (hs < 10) {
+            auxH = "0" + hs;
+        } else {
+            auxH = "" + hs;
+        }
+        if (min < 10) {
+            auxM = "0" + min ;
+        } else {
+            auxM = "" + min;
+        }
+        if (seg < 10) {
+            auxS = "0" + seg;
+        } else {
+            auxS = "" + seg;
+        }
+
+        return "Tiempo: " + auxH + ":" + auxM + ":" + auxS + " hs/min/seg";
     }
-    
+
 }
