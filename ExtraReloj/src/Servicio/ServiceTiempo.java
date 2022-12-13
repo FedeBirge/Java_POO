@@ -9,7 +9,9 @@ import Entidad.Tiempo;
 import java.util.Scanner;
 
 /**
- *
+ * Recordar crear una validación sobre las horas,
+     * minutos y segundos ingresados por el usuario. Te animas a simular el paso
+     * del tiempo en consola??????
  * @author feder
  */
 public class ServiceTiempo {
