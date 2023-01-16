@@ -54,7 +54,7 @@ public class ServiceTiempo {
   
    
 
-    public void reloj() throws InterruptedException  {
+    public void reloj() throws InterruptedException   {
         Tiempo tiempo = crearTiempo();
         while (true) {
    
