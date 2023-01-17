@@ -34,16 +34,12 @@ public class ejer1main {
     
     public static void main(String[] args) {
         ejer1Serv serv = new ejer1Serv();
-        ArrayList<String> ListaPerros = new ArrayList();
-        Scanner scan = new Scanner(System.in);
-        serv.CargarRazas(ListaPerros);
-        serv.MostarPerros(ListaPerros);      
-        System.out.println("");
-        System.out.println("Ingrese una raza a buscar,si se encuentra en la lista será eliminada ");
-        String raza = scan.next();
-        serv.BuscarRaza(ListaPerros, raza);
-        Collections.sort(ListaPerros);
-        serv.MostarPerros(ListaPerros); 
+               
+        serv.CargarRazas();
+        serv.MostarPerros();      
+        serv.BuscarRaza();
+        serv.OrdenarPerros();
+        serv.MostarPerros(); 
          
          
         }
