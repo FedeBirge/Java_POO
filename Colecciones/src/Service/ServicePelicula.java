@@ -5,6 +5,7 @@
  */
 package Service;
 
+import Comparadores.Compa;
 import Entidad.Pelicula;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,7 +57,7 @@ public void cargarPeliculas(){
    
 }  
 public void mostrarPeliculas(){
-    System.out.println("Se muestran todas las peliculas");
+    
     for (Pelicula peli : listaPeli) {
         System.out.println(peli);
         
@@ -74,24 +75,31 @@ public void mostrarPeliculasMasHora(){
 }
 //• Ordenar las películas de acuerdo a su duración (de mayor a menor) y mostrarlo en 
 //pantalla.
-public static Comparator<Pelicula> compararDuracion = new Comparator<Pelicula>(){
-    @Override
-    public int compare(Pelicula p1, Pelicula p2){
-    return p1.getDuracion().compareTo(p2.getDuracion());
-}
+
+public void ordenarDuracionDesc(){
+    System.out.println("Se muestran las peliculas ordenadas por duraccion descendente");
+   Collections.sort(listaPeli, Compa.compararDuracionDesc);
     
-};
-public void ordenarDuracion(){
-   Collections.sort(listaPeli, compararDuracion);
-    Collections.reverse(listaPeli);
     
 }
 //• Ordenar las películas de acuerdo a su duración (de menor a mayor) y mostrarlo en 
 //pantalla.
-    public void ordenarDuracionMenor(){
-   Collections.sort(listaPeli, compararDuracion);
+    public void ordenarDuracionAsc(){
+          System.out.println("Se muestran las peliculas ordenadas por duraccion ascendente");
+   Collections.sort(listaPeli, Compa.compararDuracionAsc);
     
     
 }
+    //• Ordenar las películas por título, alfabéticamente y mostrarlo en pantalla.
+    public void ordenarTitulo(){
+          System.out.println("Se muestran las peliculas ordenadas alfabeticamente por titulo");
+        Collections.sort(listaPeli, Compa.compararTituloAlfa);
+    }
+    
+    //• Ordenar las películas por director, alfabéticamente y mostrarlo en pantalla
+    public void ordenarDirector(){
+        System.out.println("Se muestran las peliculas ordenadas alfabeticamente por director");
+        Collections.sort(listaPeli, Compa.compararDirectorAlfa);
+    }
     
 }

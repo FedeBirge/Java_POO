@@ -17,18 +17,25 @@ public class PeliculaMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       ServicePelicula serv = new ServicePelicula();
-       serv.cargarPeliculas();
-       serv.mostrarPeliculas();
-        System.out.println("");
-       serv.mostrarPeliculasMasHora();
-        System.out.println("");
-       serv.ordenarDuracion();
-        System.out.println("");
-       serv.mostrarPeliculas();
-       serv.ordenarDuracionMenor();
-        System.out.println("");
+        ServicePelicula serv = new ServicePelicula();
+        serv.cargarPeliculas();
+        System.out.println("Se muestran todas las peliculas");
         serv.mostrarPeliculas();
+        System.out.println("");
+        serv.mostrarPeliculasMasHora();
+        System.out.println("");
+        serv.ordenarDuracionDesc();
+        serv.mostrarPeliculas();
+        System.out.println("");
+        serv.ordenarDuracionAsc();
+        serv.mostrarPeliculas();
+        System.out.println("");
+        serv.ordenarTitulo();
+        serv.mostrarPeliculas();
+        System.out.println("");
+        serv.ordenarDirector();
+        serv.mostrarPeliculas();
+        System.out.println("");
     }
-    
+
 }
