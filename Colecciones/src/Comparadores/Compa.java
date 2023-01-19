@@ -5,6 +5,7 @@
  */
 package Comparadores;
 
+import Entidad.Pais;
 import Entidad.Pelicula;
 import java.util.Comparator;
 
@@ -39,6 +40,13 @@ public class Compa {
         @Override
         public int compare(Pelicula p1, Pelicula p2) {
             return p1.getDirector().compareTo(p2.getDirector());
+        }
+
+    };
+    public static Comparator<Pais> compararPais = new Comparator<Pais>() {
+        @Override
+        public int compare(Pais p1, Pais p2) {
+            return p2.getNombre().compareTo(p1.getNombre());
         }
 
     };
