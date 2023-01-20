@@ -78,13 +78,16 @@ public class ServiceProducto {
         if (productos.containsKey(nombre)) {
             productos.remove(nombre);
         }
+        else {
+            System.out.println("El producto no existe");
+        }
     }
 
     public void mostrarProductos() {
         for (Map.Entry<String, Integer> entry : productos.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
-            System.out.println("Producto: " + key.hashCode() + " .Precio: " + value);
+            System.out.println("Producto: " + key + " Precio: " + value);
 
         }
     }
