@@ -1,11 +1,13 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Entidad;
 
 /**
  *
  * @author feder
  */
-//clase Persona con atributos: nombre, apellido, edad, documento y Perro.
 public class Persona {
     private String nombre;
     private String apellido;
@@ -66,10 +68,10 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", dni=" + dni + ",\n perro=" + perro + '}';
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", dni=" + dni + ", perro=" + perro + '}';
     }
 
-    
+
     
     
 }
