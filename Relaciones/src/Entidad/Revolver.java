@@ -18,9 +18,7 @@ public class Revolver {
     private Integer posActual;
     private Integer posAgua;
 
-    public Revolver() {
-       
-        
+    public Revolver() {              
     }
 
     public Revolver(Integer posActual, Integer posAgua) {

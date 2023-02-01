@@ -47,9 +47,9 @@ public class ServiceJuego {
 //mojar. Al final del juego, se debe mostrar que jugador se mojó.
 //Pensar la lógica necesaria para realizar esto, usando los atributos de la clase Juego.
     public void ronda(Juego juego) {
-        ArrayList<Jugador> lista = juego.getJugadores();
+       
         ServiceJugador servJ = new ServiceJugador();
-        for (Jugador jugador : lista) {
+        for (Jugador jugador : juego.getJugadores()) {
             if (servJ.disparo(juego.getRevolver(), jugador)) {
                 System.out.println(jugador + " !!!!!MOJADO!!!!!!!!");
                 break;

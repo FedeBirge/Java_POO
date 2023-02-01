@@ -4,27 +4,22 @@
  */
 package Main;
 
-import Entidad.Juego;
-import Entidad.Revolver;
-import Service.ServiceJuego;
-import Service.ServiceRevolver;
+import Service.ServicePersona;
 
 /**
  *
  * @author feder
  */
-public class Ruleta {
+public class AdoptarPerros {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ServiceJuego serv = new ServiceJuego();
-        Juego juego = serv.llenarJuego();
-        serv.ronda(juego);
-        
-  
-        
+        ServicePersona serv = new ServicePersona();
+        serv.cargarListas();
+        serv.adoptar();
+        serv.mostrarPersonas();
     }
     
 }

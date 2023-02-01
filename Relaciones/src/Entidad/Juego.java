@@ -5,7 +5,6 @@
 package Entidad;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -18,8 +17,7 @@ public class Juego {
     private ArrayList<Jugador> jugadores;
 
     public Juego() {
-        
-        
+               
     }
 
     public Juego(Revolver revolver, ArrayList<Jugador> jugadores) {

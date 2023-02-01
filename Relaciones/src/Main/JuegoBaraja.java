@@ -4,27 +4,25 @@
  */
 package Main;
 
-import Entidad.Juego;
-import Entidad.Revolver;
-import Service.ServiceJuego;
-import Service.ServiceRevolver;
+import Service.ServiceCarta;
 
 /**
  *
  * @author feder
  */
-public class Ruleta {
+public class JuegoBaraja {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ServiceJuego serv = new ServiceJuego();
-        Juego juego = serv.llenarJuego();
-        serv.ronda(juego);
-        
-  
-        
+       ServiceCarta serv = new ServiceCarta();
+       serv.iniciarBaraja();
+       
+       serv.barajar();
+       serv.darCartas();
+       serv.mostrarBaraja();
+       serv.mostrarMonton();
     }
     
 }
