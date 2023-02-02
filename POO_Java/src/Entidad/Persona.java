@@ -13,41 +13,51 @@ public class Persona {
     public String nombre;
     public String DNI;
     public String FechaNac;
+    private Libro libro;
+    private Circunferencia cir;
 
-    public Persona(String nombre, String DNI, String FechaNac) {
+    public Persona() {
+    }
+
+    public Persona(String nombre, String DNI, String FechaNac, Libro libro) {
         this.nombre = nombre;
         this.DNI = DNI;
         this.FechaNac = FechaNac;
+        this.libro = libro;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getDNI() {
-        return DNI;
-    }
-
-    public String getFechaNac() {
-        return FechaNac;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getDNI() {
+        return DNI;
     }
 
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
 
+    public String getFechaNac() {
+        return FechaNac;
+    }
+
     public void setFechaNac(String FechaNac) {
         this.FechaNac = FechaNac;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", DNI=" + DNI + ", FechaNac=" + FechaNac + '}';
+    public Libro getLibro() {
+        return libro;
     }
+
+    public void setLibro(Libro libro) {
+        this.libro = libro;
+    }
+
     
     
 }

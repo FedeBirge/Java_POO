@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entidad">
+  <ClassDiagramComponents>
+    <Class name="Circunferencia" package="Entidad" visibility="public" xPosition="356.0" yPosition="242.0">
+      <Fields>
+        <Field name="radio" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="float" name="radio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getRadio" returnType="float" visibility="public"/>
+        <Method name="setRadio" returnType="void" visibility="public">
+          <Argument type="float" name="radio"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Libro" package="Entidad" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="ISBN" type="String" visibility="private"/>
+        <Field name="Titulo" type="String" visibility="private"/>
+        <Field name="Autor" type="String" visibility="private"/>
+        <Field name="NPaginas" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="ISBN"/>
+          <Argument type="String" name="Titulo"/>
+          <Argument type="String" name="Autor"/>
+          <Argument type="String" name="NPaginas"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getISBN" returnType="String" visibility="public"/>
+        <Method name="getTitulo" returnType="String" visibility="public"/>
+        <Method name="getAutor" returnType="String" visibility="public"/>
+        <Method name="getNPaginas" returnType="String" visibility="public"/>
+        <Method name="setISBN" returnType="void" visibility="public">
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="setTitulo" returnType="void" visibility="public">
+          <Argument type="String" name="Titulo"/>
+        </Method>
+        <Method name="setAutor" returnType="void" visibility="public">
+          <Argument type="String" name="Autor"/>
+        </Method>
+        <Method name="setNPaginas" returnType="void" visibility="public">
+          <Argument type="String" name="NPaginas"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="Entidad" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="public"/>
+        <Field name="DNI" type="String" visibility="public"/>
+        <Field name="FechaNac" type="String" visibility="public"/>
+        <Field name="libro" type="Libro" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="DNI"/>
+          <Argument type="String" name="FechaNac"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getDNI" returnType="String" visibility="public"/>
+        <Method name="getFechaNac" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setDNI" returnType="void" visibility="public">
+          <Argument type="String" name="DNI"/>
+        </Method>
+        <Method name="setFechaNac" returnType="void" visibility="public">
+          <Argument type="String" name="FechaNac"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="libro" source="Entidad.Persona" target="Entidad.Libro" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

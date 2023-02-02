@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Asiento" package="Entidad" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="ocuado" type="Boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getOcuado" returnType="Boolean" visibility="public"/>
+        <Method name="setOcuado" returnType="void" visibility="public">
+          <Argument type="Boolean" name="ocuado"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Pelicula" package="Entidad" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="titulo" type="String" visibility="private"/>
+        <Field name="duracion" type="Float" visibility="private"/>
+        <Field name="edadMin" type="int" visibility="private"/>
+        <Field name="director" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="titulo"/>
+          <Argument type="Float" name="duracion"/>
+          <Argument type="int" name="edadMin"/>
+          <Argument type="String" name="director"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTitulo" returnType="String" visibility="public"/>
+        <Method name="setTitulo" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+        <Method name="getDuracion" returnType="Float" visibility="public"/>
+        <Method name="setDuracion" returnType="void" visibility="public">
+          <Argument type="Float" name="duracion"/>
+        </Method>
+        <Method name="getEdadMin" returnType="int" visibility="public"/>
+        <Method name="setEdadMin" returnType="void" visibility="public">
+          <Argument type="int" name="edadMin"/>
+        </Method>
+        <Method name="getDirector" returnType="String" visibility="public"/>
+        <Method name="setDirector" returnType="void" visibility="public">
+          <Argument type="String" name="director"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="Entidad" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="edad" type="Integer" visibility="private"/>
+        <Field name="dni" type="DNI" visibility="private"/>
+        <Field name="perro" type="Perro" visibility="private"/>
+        <Field name="dinero" type="Float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="Float" name="dinero"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="DNI" name="dni"/>
+          <Argument type="Perro" name="perro"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getEdad" returnType="Integer" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="Integer" name="edad"/>
+        </Method>
+        <Method name="getDni" returnType="DNI" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="DNI" name="dni"/>
+        </Method>
+        <Method name="getPerro" returnType="Perro" visibility="public"/>
+        <Method name="setPerro" returnType="void" visibility="public">
+          <Argument type="Perro" name="perro"/>
+        </Method>
+        <Method name="getDinero" returnType="Float" visibility="public"/>
+        <Method name="setDinero" returnType="void" visibility="public">
+          <Argument type="Float" name="dinero"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Sala" package="Entidad" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="pelicula" type="Pelicula" visibility="private"/>
+        <Field name="asientos" type="ArrayList&lt;Asiento&gt;" visibility="private"/>
+        <Field name="precio" type="Float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Pelicula" name="pelicula"/>
+          <Argument type="Float" name="precio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPelicula" returnType="Pelicula" visibility="public"/>
+        <Method name="setPelicula" returnType="void" visibility="public">
+          <Argument type="Pelicula" name="pelicula"/>
+        </Method>
+        <Method name="getAsientos" returnType="ArrayList&lt;Asiento&gt;" visibility="public"/>
+        <Method name="setAsientos" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Asiento&gt;" name="asientos"/>
+        </Method>
+        <Method name="getPrecio" returnType="Float" visibility="public"/>
+        <Method name="setPrecio" returnType="void" visibility="public">
+          <Argument type="Float" name="precio"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="asientos" source="Entidad.Sala" target="Entidad.Asiento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Asiento&gt;"/>
+    <UseRelation source="Entidad.Sala" target="Entidad.Asiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pelicula" source="Entidad.Sala" target="Entidad.Pelicula" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidad.Sala" target="Entidad.Pelicula" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

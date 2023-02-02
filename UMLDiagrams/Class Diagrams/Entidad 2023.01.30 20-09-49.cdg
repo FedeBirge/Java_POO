@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entidad">
+  <ClassDiagramComponents>
+    <Class name="DNI" package="Entidad" visibility="public" xPosition="52.0" yPosition="4.0">
+      <Fields>
+        <Field name="serie" type="String" visibility="private"/>
+        <Field name="num" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="serie"/>
+          <Argument type="Integer" name="num"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSerie" returnType="String" visibility="public"/>
+        <Method name="setSerie" returnType="void" visibility="public">
+          <Argument type="String" name="serie"/>
+        </Method>
+        <Method name="getNum" returnType="Integer" visibility="public"/>
+        <Method name="setNum" returnType="void" visibility="public">
+          <Argument type="Integer" name="num"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Perro" package="Entidad" visibility="public" xPosition="33.0" yPosition="301.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="raza" type="String" visibility="private"/>
+        <Field name="edad" type="Integer" visibility="private"/>
+        <Field name="tam" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="raza"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="String" name="tam"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getRaza" returnType="String" visibility="public"/>
+        <Method name="setRaza" returnType="void" visibility="public">
+          <Argument type="String" name="raza"/>
+        </Method>
+        <Method name="getEdad" returnType="Integer" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="Integer" name="edad"/>
+        </Method>
+        <Method name="getTam" returnType="String" visibility="public"/>
+        <Method name="setTam" returnType="void" visibility="public">
+          <Argument type="String" name="tam"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="Entidad" visibility="public" xPosition="537.0" yPosition="4.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="edad" type="Integer" visibility="private"/>
+        <Field name="dni" type="DNI" visibility="private"/>
+        <Field name="perro" type="Perro" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="DNI" name="dni"/>
+          <Argument type="Perro" name="perro"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getEdad" returnType="Integer" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="Integer" name="edad"/>
+        </Method>
+        <Method name="getDni" returnType="DNI" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="DNI" name="dni"/>
+        </Method>
+        <Method name="getPerro" returnType="Perro" visibility="public"/>
+        <Method name="setPerro" returnType="void" visibility="public">
+          <Argument type="Perro" name="perro"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Entidad.Persona" target="Entidad.DNI" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidad.Persona" target="Entidad.Perro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="perro" source="Entidad.Persona" target="Entidad.Perro" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dni" source="Entidad.Persona" target="Entidad.DNI" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

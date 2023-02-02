@@ -4,26 +4,24 @@
  */
 package Main;
 
-import Service.ServiceCarta;
+import Service.ServiceSala;
 
 /**
  *
  * @author feder
  */
-public class JuegoBaraja {
+public class mainCine {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       ServiceCarta serv = new ServiceCarta();
-       serv.iniciarBaraja();
-       
-       serv.barajar();
-       serv.darCartas();
-       serv.mostrarBaraja();
-       serv.mostrarMonton();
-
+        ServiceSala serv = new ServiceSala();
+        serv.crearSala();
+//        serv.mostrarSala();
+        serv.sentar();
+        System.out.println("");
+        serv.mostrarSala();
     }
-    
+
 }
