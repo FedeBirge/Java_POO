@@ -10,10 +10,10 @@ package Entidad;
  */
 public class Asiento {
     private String nombre;
-    private Boolean ocuado;
+    private Boolean ocupado;
 
     public Asiento() {
-        ocuado=false;
+        ocupado=false;
     }
 
     public Asiento(String nombre) {
@@ -28,12 +28,12 @@ public class Asiento {
         this.nombre = nombre;
     }
 
-    public Boolean getOcuado() {
-        return ocuado;
+    public Boolean getOcupado() {
+        return ocupado;
     }
 
-    public void setOcuado(Boolean ocuado) {
-        this.ocuado = ocuado;
+    public void setOcupado(Boolean ocupado) {
+        this.ocupado = ocupado;
     }
 
    

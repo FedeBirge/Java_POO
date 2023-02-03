@@ -57,7 +57,7 @@ public class ServiceSala {
         for (Asiento asiento : asientos) {
             System.out.print(asiento);
             cont++;
-            if (!asiento.getOcuado()) {
+            if (!asiento.getOcupado()) {
                 System.out.print(" X ");
             } else {
                 System.out.print("   ");
@@ -89,10 +89,10 @@ public class ServiceSala {
 
                         if (asiento.equals(as.getNombre())) {
                             System.out.println(asiento + " " + as.getNombre() + " " + espec.getNombre());
-                            if (as.getOcuado()) {
+                            if (as.getOcupado()) {
                                 break;
                             } else {
-                                as.setOcuado(true);
+                                as.setOcupado(true);
                                 ocupado = false;
                             }
                         }

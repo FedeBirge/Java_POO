@@ -18,7 +18,7 @@ public class mainCine {
     public static void main(String[] args) {
         ServiceSala serv = new ServiceSala();
         serv.crearSala();
-//        serv.mostrarSala();
+//      serv.mostrarSala();
         serv.sentar();
         System.out.println("");
         serv.mostrarSala();
