@@ -107,7 +107,7 @@ public class ServiceCliente {
     }
     public void presioneTecla(){
           System.out.println("");
-        System.out.println("Ingrese una LETRA y presione ENTER para continuar...");
+        System.out.println("Presione ENTER para continuar...");
         String letra =scan.next();
     }
 

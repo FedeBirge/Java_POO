@@ -19,8 +19,8 @@ public class mainAseguradora {
     public static void main(String[] args) {
     ServicePoliza serv = new ServicePoliza();
     ServiceCuota servCuo= new ServiceCuota();
-        //serv.menuPoliza();
-        servCuo.generarPlan();
+       serv.menu();
+       
     }
     
    
