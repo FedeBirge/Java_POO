@@ -4,7 +4,6 @@
  */
 package Service;
 
-import Entidad.Cliente;
 import Entidad.Vehiculo;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,7 +14,7 @@ import java.util.Scanner;
  */
 public class ServiceVehiculo {
 
-    ArrayList<Vehiculo> vehiculos;
+    private ArrayList<Vehiculo> vehiculos;
     private Scanner scan;
 
     public ServiceVehiculo() {
@@ -82,7 +81,7 @@ public class ServiceVehiculo {
     }
 
     public Vehiculo buscarVehiculo() {
-        System.out.println("Ingrese la patente del vehiculo a buscar");
+        System.out.println("Ingrese la patente del vehiculo");
         String pat = scan.next();
         for (Vehiculo vehiculo : vehiculos) {
             if (pat.equals(vehiculo.getPatente())) {

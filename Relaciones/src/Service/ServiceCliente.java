@@ -14,29 +14,31 @@ import java.util.Scanner;
  */
 public class ServiceCliente {
 
-    private ArrayList<Cliente> clientes;
+    private ArrayList<Cliente> clientes ;
     private Scanner scan;
 
     public ServiceCliente() {
         clientes = new ArrayList();
         scan = new Scanner(System.in).useDelimiter("\n");
+      
     }
 
     public Cliente crearCliente() {
+        Cliente cliente = new Cliente();
         System.out.println("Ingrese nombre del cliente");
-        String nombre = scan.next();
+        cliente.setNombre(scan.next());
         System.out.println("Ingrese apellido del cliente");
-        String apellido = scan.next();
+        cliente.setApellido(scan.next());
         System.out.println("Ingrese DNI del cliente");
-        Long dni = scan.nextLong();
+        cliente.setDni(scan.nextLong());
         System.out.println("Ingrese mail del cliente");
-        String mail = scan.next();
+        cliente.setMail(scan.next());
         System.out.println("Ingrese domicilio del cliente");
-        String domicilio = scan.next();
+        cliente.setDomicilio(scan.next());
         System.out.println("Ingrese telefono del cliente");
-        String telefono = scan.next();
-        clientes.add(new Cliente(nombre, apellido, dni, mail, domicilio, telefono));
-        return new Cliente(nombre, apellido, dni, mail, domicilio, telefono);
+        cliente.setTelefono(scan.next());
+        clientes.add(cliente);
+        return cliente;
     }
 
     public void modificarCliente() {
@@ -72,7 +74,7 @@ public class ServiceCliente {
 
     public Cliente buscarCliente() {
         System.out.println("Ingrese el DNI del cliente a buscar");
-        String dni = scan.next();
+        Long dni = scan.nextLong();
 
         for (Cliente cliente : clientes) {
             if (dni.equals(cliente.getDni())) {
@@ -95,14 +97,14 @@ public class ServiceCliente {
     }
 
     public void mostrarClientes() {
-        if (clientes.isEmpty()){
-            System.out.println("Lista de Clientes vacia!");  
-        }
-        else{
+//        if (clientes.isEmpty()){
+//            System.out.println("Lista de Clientes vacia!");  
+//        }
+//        else{
         for (Cliente cliente : clientes) {
             System.out.println(cliente);
         }
-        }
+//        }
 
     }
     public void presioneTecla(){

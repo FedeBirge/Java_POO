@@ -23,18 +23,18 @@ public class Cuota implements Comparable<Cuota>{
     private Float monto;
     private Boolean pagada;
     private LocalDate vence;
-    private String forma; //sacar
+
 
     public Cuota() {
        pagada=false;
     }
 
-    public Cuota(Integer numero, Float monto, Boolean pagada, LocalDate vence, String forma) {
+    public Cuota(Integer numero, Float monto, Boolean pagada, LocalDate vence) {
         this.numero = numero;
         this.monto = monto;
         this.pagada = pagada;
         this.vence = vence;
-        this.forma = forma; 
+        
     }
 
     public Integer getNumero() {
@@ -69,13 +69,8 @@ public class Cuota implements Comparable<Cuota>{
         this.vence = vence;
     }
 
-    public String getForma() {
-        return forma;
-    }
 
-    public void setForma(String forma) {
-        this.forma = forma;
-    }
+   
 
     @Override
     public int hashCode() {
@@ -84,7 +79,7 @@ public class Cuota implements Comparable<Cuota>{
         hash = 97 * hash + Objects.hashCode(this.monto);
         hash = 97 * hash + Objects.hashCode(this.pagada);
         hash = 97 * hash + Objects.hashCode(this.vence);
-        hash = 97 * hash + Objects.hashCode(this.forma);
+        
         return hash;
     }
 
@@ -100,9 +95,7 @@ public class Cuota implements Comparable<Cuota>{
             return false;
         }
         final Cuota other = (Cuota) obj;
-        if (!Objects.equals(this.forma, other.forma)) {
-            return false;
-        }
+       
         if (!Objects.equals(this.numero, other.numero)) {
             return false;
         }
@@ -117,9 +110,9 @@ public class Cuota implements Comparable<Cuota>{
 
     @Override
     public String toString() {
-        return "Cuota{" + "numero=" + numero + ", monto=" + monto + ", "
-                + "pagada=" + pagada + ", vence=" 
-                + vence.format(DateTimeFormatter.ofPattern(" dd MMM yyyy")) + ", forma=" + forma + '}';
+        return "cuota N° " + numero + ", monto: " + monto + ", "
+                + "pagada " + pagada + ", vence " 
+                + vence.format(DateTimeFormatter.ofPattern("dd MMM yyyy"));
     }
 
     @Override

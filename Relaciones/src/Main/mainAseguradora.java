@@ -4,7 +4,7 @@
  */
 package Main;
 
-import Service.ServiceCuota;
+
 import Service.ServicePoliza;
 
 /**
@@ -18,10 +18,8 @@ public class mainAseguradora {
      */
     public static void main(String[] args) {
     ServicePoliza serv = new ServicePoliza();
-    ServiceCuota servCuo= new ServiceCuota();
-       serv.menu();
-       
-    }
+    serv.menu();
+           }
     
    
 }

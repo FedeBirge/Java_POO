@@ -36,8 +36,8 @@ public class Poliza {
     private TreeSet<Cuota> plan;  
 
     public Poliza() {
-        fechaFin.format(DateTimeFormatter.ofPattern(" dd MMM yyyy"));
-        fechaInicio.format(DateTimeFormatter.ofPattern(" dd MMM yyyy"));
+//        fechaFin.format(DateTimeFormatter.ofPattern(" dd MMM yyyy"));
+//        fechaInicio.format(DateTimeFormatter.ofPattern(" dd MMM yyyy"));
     }
     
     public Poliza(Integer numero, LocalDate fechaInicio, LocalDate fechaFin, Integer cuotas, String formaPago, Long montoAsegurado, Boolean granizo, Integer montoGranizo, String tipoCobertura, Cliente cliente, Vehiculo vehiculo, TreeSet<Cuota> plan) {
@@ -153,7 +153,14 @@ public class Poliza {
 
     @Override
     public String toString() {
-        return "Poliza{" + "numero=" + numero + ", fechaInicio=" + fechaInicio.format(DateTimeFormatter.ofPattern(" dd MMM yyyy")) + ", fechaFin=" + fechaFin.format(DateTimeFormatter.ofPattern(" dd MMM yyyy")) + ",\n cuotas=" + cuotas + ", formaPago=" + formaPago + ", montoAsegurado=" + montoAsegurado + ", granizo=" + granizo + ", montoGranizo=" + montoGranizo + ", tipoCobertura=" + tipoCobertura + ",\n cliente=" + cliente + ",\n vehiculo=" + vehiculo + ",\n plan=" + plan + '}';
+        return "Poliza N° " + numero + ", vigencia desde" 
+                + fechaInicio.format(DateTimeFormatter.ofPattern(" dd MMM yyyy")) 
+                + " hasta" + fechaFin.format(DateTimeFormatter.ofPattern(" dd MMM yyyy")) 
+                + ".\n"+ cuotas + " cuotas por " + formaPago + ", Monto Total Asegurado: " + montoAsegurado 
+                + ".\nCobertura Granizo " + granizo + ", Monto por Granizo: " + montoGranizo + ", Cobertura Tipo " + tipoCobertura 
+                + ",\nCliente=" + cliente 
+                + ",\nVehiculo=" + vehiculo 
+                + ",\nplan=" + plan + " .";
     }
     
             
