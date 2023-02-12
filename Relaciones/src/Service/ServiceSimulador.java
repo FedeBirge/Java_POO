@@ -27,8 +27,10 @@ public class ServiceSimulador {
     private ArrayList<Voto> votos;
 
     public ServiceSimulador() {
-        nombres = new ArrayList<>(Arrays.asList("Ana", "María", "Juana", "Pedro", "Jose", "Juan"));;
-        apellidos = new ArrayList<>(Arrays.asList("Gomez", "Perez", "Suarez", "Olmos", "Lopez", "Sosa"));
+        nombres = new ArrayList<>(Arrays.asList("Ana", "María", "Juana", "Pedro", "Jose", "Juan",
+                "Marcos", "Lucas", "Franco", "Gonzalo", "Lorena"));;
+        apellidos = new ArrayList<>(Arrays.asList("Gomez", "Perez", "Suarez", "Olmos", "Lopez", "Sosa",
+                "Gonzalez", "Romero", "Moreno", "Garcia", "Maidana"));
         alumnos = new ArrayList<>();
         dnis = new ArrayList<>();
         scan = new Scanner(System.in).useDelimiter("\n");
@@ -37,17 +39,16 @@ public class ServiceSimulador {
 
     public ArrayList<Alumno> generarAlumnos() {
         ArrayList<Alumno> alus = new ArrayList<>();
-        System.out.println("Ingrese la cantidad de alumnos(Maximo 6 )");
+        System.out.println("Ingrese la cantidad de alumnos:");
         int cant = scan.nextInt();
         for (int i = 0; i < cant; i++) {
             Alumno al = new Alumno();
-            int idNombre = (int) (Math.random() * 6);
-            int idApellido = (int) (Math.random() * 6);
+            int idNombre = (int) (Math.random() * nombres.size());
+            int idApellido = (int) (Math.random() * apellidos.size());
             al.setNombre(nombres.get(idNombre) + " " + apellidos.get(idApellido));
             alus.add(al);
         }
         generarDni(alus);
-       
         return alus;
     }
 //    Ahora hacer un generador de combinaciones de DNI posibles, deben estar dentro de un
@@ -61,17 +62,16 @@ public class ServiceSimulador {
             int ciento = (int) (Math.random() * 99);
             alu.setDni((long) ((millo * 1000000) + (cienmil * 1000) + ciento));
             dnis.add(alu.getDni());
-
         }
     }
 
     public void mostrarAlumnos(ArrayList<Alumno> alum) {
         for (Alumno alumno : alum) {
             System.out.println(alumno);
-
         }
     }
-public void presioneTecla() {
+
+    public void presioneTecla() {
         System.out.println("");
         System.out.println("Presione ENTER para continuar...");
         String letra = scan.next();
@@ -82,33 +82,58 @@ public void presioneTecla() {
 //votos a cada alumno que reciba un voto, que es un atributo de la clase Alumno.
 //Tener en cuenta que un alumno no puede votarse a sí mismo o votar más de una vez al
 //mismo alumno. Utilizar un hashset para resolver esto
-public void votacion(ArrayList<Alumno> alumnos){
-       for (Alumno alumno : alumnos) {
-           ArrayList<Alumno> votados = new ArrayList<>();
-           int vot = 0;
-           
-           do {
-               int ind =(int)(Math.random()*(alumnos.size()));
-               if(!alumno.equals(alumnos.get(ind))){
-                   if(!votados.contains(alumnos.get(ind))){
-                       votados.add(alumnos.get(ind));
-                       vot++;
-                       alumnos.get(ind).setVotos(alumnos.get(ind).getVotos()+1);
-                   }
-               }
-//               System.out.println(vot);
-           } while (votados.size()<3);
-           votos.add(new Voto(alumno, votados));
+
+    public void votacion(ArrayList<Alumno> alumnos) {
+        votos.clear();
+        for (Alumno alumno : alumnos) {
+            ArrayList<Alumno> votados = new ArrayList<>();
+            int vot = 0;
+            do {
+                int ind = (int) (Math.random() * (alumnos.size()));
+                if (!alumno.equals(alumnos.get(ind))) {
+                    if (!votados.contains(alumnos.get(ind))) {
+                        votados.add(alumnos.get(ind));
+                        vot++;
+                        alumnos.get(ind).setVotos(alumnos.get(ind).getVotos() + 1);
+                    }
+                }
+            } while (votados.size() < 3);
+            votos.add(new Voto(alumno, votados));
+        }
     }
-}
- public void mostrarVotacion(){
-     for (Voto voto : votos) {
-         System.out.println(voto);
-         
-     }
- }      
- 
-    
+
+    public void mostrarVotacion() {
+        for (Voto voto : votos) {
+            System.out.println(voto);
+        }
+    }
+
+    public int recuentoVotos() {
+        int total = 0;
+        for (Alumno alumno : alumnos) {
+            total += alumno.getVotos();
+        }
+        return total;
+    }
+
+    public void facilitadores() {
+        alumnos.sort(ServiceAlumno.compararCantVotosDesc);
+        System.out.println("Cinco Facilitadores:");
+        System.out.println("");
+        for (int i = 0; i < alumnos.size(); i++) {
+            if (i == 10) {
+                break;
+            } else {
+                System.out.println(alumnos.get(i));
+
+                if (i == 4) {
+                    System.out.println("");
+                    System.out.println("Cinco Facilitadores Suplentes");
+                    System.out.println("");
+                }
+            }
+        }
+    }
 
     public void menu() {
 
@@ -118,39 +143,48 @@ public void votacion(ArrayList<Alumno> alumnos){
         System.out.println("2. Mostrar lista de Alumnos");
         System.out.println("3. Simular votos");
         System.out.println("4. Mostrar lista de votos");
-        System.out.println("5. Salir");
+        System.out.println("5. Recuento de votos");
+        System.out.println("6. Mostrar lista de facilitadores");
+        System.out.println("7. Salir");
         System.out.println("");
         System.out.println("Ingrese una opcion: ");
         int op = scan.nextInt();
         switch (op) {
             case 1:
                 alumnos = generarAlumnos();
-                presioneTecla();    
+                presioneTecla();
                 menu();
                 break;
             case 2:
                 mostrarAlumnos(alumnos);
-                presioneTecla();    
+                presioneTecla();
                 menu();
                 break;
             case 3:
                 votacion(alumnos);
-                presioneTecla();    
+                presioneTecla();
                 menu();
                 break;
             case 4:
                 mostrarVotacion();
-                presioneTecla();    
+                presioneTecla();
                 menu();
                 break;
             case 5:
+                System.out.println("La cantidad total de votos es: " + recuentoVotos());
+                presioneTecla();
+                menu();
+            case 6:
+                facilitadores();
+                presioneTecla();
+                menu();
+            case 7:
                 break;
             default:
                 System.out.println("Opcion incorrecta!!");
-                presioneTecla();    
+                presioneTecla();
                 menu();
                 break;
-
         }
     }
 }

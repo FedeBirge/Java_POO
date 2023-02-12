@@ -4,12 +4,14 @@
  */
 package Entidad;
 
+import java.util.Objects;
+
 /**
  *
  * @author feder
  */
 //nombre completo, DNI y cantidad de votos.
-public class Alumno {
+public class Alumno implements Comparable<Alumno>{
     private String nombre;
     private Long dni;
     private Integer votos;
@@ -49,8 +51,43 @@ public class Alumno {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.nombre);
+        hash = 53 * hash + Objects.hashCode(this.dni);
+        hash = 53 * hash + Objects.hashCode(this.votos);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Alumno other = (Alumno) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.dni, other.dni)) {
+            return false;
+        }
+        return Objects.equals(this.votos, other.votos);
+    }
+
+    @Override
     public String toString() {
         return "Alumno "+ nombre+" ["+votos+"]"; //+ " ,dni " + dni + ", cantidad de votos: " + votos;
+    }
+
+    @Override
+    public int compareTo(Alumno t) {
+        return t.getVotos().compareTo(this.votos);
     }
     
     

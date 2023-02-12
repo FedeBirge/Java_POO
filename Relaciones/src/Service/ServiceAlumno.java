@@ -4,10 +4,19 @@
  */
 package Service;
 
+import Entidad.Alumno;
+import java.util.Comparator;
+
 /**
  *
  * @author feder
  */
 public class ServiceAlumno {
+        public static Comparator<Alumno> compararCantVotosDesc = new Comparator<Alumno>() {
+        @Override
+        public int compare(Alumno p1, Alumno p2) {
+            return p2.getVotos().compareTo(p1.getVotos());
+        }
+    };
     
 }
