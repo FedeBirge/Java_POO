@@ -25,7 +25,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Pelicula" package="Entidad" visibility="public" xPosition="650.0" yPosition="440.0">
+    <Class name="Pelicula" package="Entidad" visibility="public" xPosition="674.0" yPosition="387.0">
       <Fields>
         <Field name="titulo" type="String" visibility="private"/>
         <Field name="duracion" type="Float" visibility="private"/>

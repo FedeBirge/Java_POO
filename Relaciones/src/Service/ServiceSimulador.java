@@ -137,7 +137,7 @@ public class ServiceSimulador {
 
     public void menu() {
 
-        System.out.println("-------------IMULADOR DE VOTOS-------------");
+        System.out.println("-------------SIMULADOR DE VOTOS-------------");
         System.out.println("");
         System.out.println("1. Generar lista de Alumnos");
         System.out.println("2. Mostrar lista de Alumnos");

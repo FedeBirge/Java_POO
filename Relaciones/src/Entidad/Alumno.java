@@ -82,7 +82,7 @@ public class Alumno implements Comparable<Alumno>{
 
     @Override
     public String toString() {
-        return "Alumno "+ nombre+" ["+votos+"]"; //+ " ,dni " + dni + ", cantidad de votos: " + votos;
+        return "Alumno "+ nombre+" ["+votos+"]" + " ,dni " + dni;// + ", cantidad de votos: " + votos;
     }
 
     @Override
