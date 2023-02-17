@@ -31,6 +31,7 @@ public final class ServiceLavadora extends ServiceElectrodomestico {
 //carga es menor o igual, no se incrementará el precio. Este método debe llamar al 
 //método padre y añadir el código necesario. Recuerda que las condiciones que hemos 
 //visto en la clase Electrodoméstico también deben afectar al precio.
+   
     public void preciofinal(Lavadora lav) {
         super.preciofinal(lav);
         if (lav.getCarga() > 30) {
