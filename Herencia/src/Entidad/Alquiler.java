@@ -85,9 +85,9 @@ public class Alquiler {
     @Override
     public String toString() {
         return "Alquiler -->" + " Cliente " + nombre + ", dni: " + dni 
-                + "\n, fecha de alquiler " + fechaAlquila.format(DateTimeFormatter.ofPattern(" dd MMM yyyy"))  
+                + ",\nFecha de alquiler " + fechaAlquila.format(DateTimeFormatter.ofPattern("dd MMM yyyy"))  
                 + ", fecha de devolucion " + fechaDevuelve.format(DateTimeFormatter.ofPattern("dd MMM yyyy"))
-                + "\n, Poste de amarre N° " + posAmarre + ", \nBarco:" + barco;
+                + ",\nPoste de amarre N° " + posAmarre + ", \nBarco:" + barco;
     }
     
     

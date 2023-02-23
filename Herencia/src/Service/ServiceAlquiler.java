@@ -53,7 +53,7 @@ public void presioneTecla() {
                 BarcoMotor b = new BarcoMotor(250, "AA456", 50, 2010);
                 Alquiler al1 = new Alquiler("Fede", "25457874", LocalDate.parse("2023-02-19"), LocalDate.parse("2023-03-16"), 8, b);
                 System.out.println("El valor de alquiler del barco a motor es: " + calcularAlquiler(al1));
-                     System.out.println(al1);
+                System.out.println(al1);
                 System.out.println("");
                 break;
             case 3:
