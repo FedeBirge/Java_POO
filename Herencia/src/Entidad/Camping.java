@@ -10,10 +10,10 @@ package Entidad;
  */
 //la capacidad máxima de carpas, la cantidad de baños
 //disponibles y si posee o no un restaurante dentro de las instalaciones.
-public class Camping extends HotelExtra{
-    public Integer carpas;
-    public Integer banos;
-    public Boolean resto;
+public final class Camping extends HotelExtra{
+   private Integer carpas;
+    private Integer banos;
+    private Boolean resto;
 
     public Camping() {
     }
@@ -52,7 +52,7 @@ public class Camping extends HotelExtra{
     @Override
     public String toString() { 
         return "Camping "+nombre+", "+ direccion+", "+ localidad+", "+ gerente
-                + "\nPropietario Privado "+privado+". Metros cuadros totales:" + mts2+". Precio Habitacion"+ precioHabi
+                + "\nPropietario Privado "+privado+". Metros cuadros totales: " + mts2+". Precio Habitacion "+ precioHabi
                 + "\nCapacidad de carpas: " + carpas + ". Cantidad de banos: " + banos + ". Restaurante en instalaciones: " + resto;
     }
     

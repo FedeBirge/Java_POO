@@ -17,6 +17,7 @@ public class mainEJ3Extra {
      */
     public static void main(String[] args) {
      ServiceAlojamiento serv = new ServiceAlojamiento();
+     serv.menu();
     }
     
 }

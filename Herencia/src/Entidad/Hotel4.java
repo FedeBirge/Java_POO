@@ -11,9 +11,9 @@ package Entidad;
 //Gimnasio, nombre del Restaurante, Capacidad del Restaurante,
 public class Hotel4 extends Hotel {
 
-    public String gym;
-    public String nombreResto;
-    public Integer capaResto;
+    protected String gym;
+    protected String nombreResto;
+    protected Integer capaResto;
 
     public Hotel4() {
     }

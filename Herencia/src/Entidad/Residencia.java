@@ -10,27 +10,27 @@ package Entidad;
  */
 //indica la cantidad de habitaciones, si se hacen o no descuentos a los gremios 
 //y si posee o no campo deportivo.
-public class Residencia extends HotelExtra{
-    public Integer cantHabi;
-    public Boolean descuento;
-    public Boolean deportivo;
+public final class Residencia extends HotelExtra{
+    private Integer cantH;
+    private Boolean descuento;
+    private Boolean deportivo;
 
     public Residencia() {
     }
 
-    public Residencia(Integer cantHabi, Boolean descuento, Boolean deportivo, Boolean privado, Integer mts2, Integer precioHabi, String nombre, String direccion, String localidad, String gerente) {
+    public Residencia(Integer cantH, Boolean descuento, Boolean deportivo, Boolean privado, Integer mts2, Integer precioHabi, String nombre, String direccion, String localidad, String gerente) {
         super(privado, mts2, precioHabi, nombre, direccion, localidad, gerente);
-        this.cantHabi = cantHabi;
+        this.cantH = cantH;
         this.descuento = descuento;
         this.deportivo = deportivo;
     }
 
-    public Integer getCantHabi() {
-        return cantHabi;
+    public Integer getCantH() {
+        return cantH;
     }
 
-    public void setCantHabi(Integer cantHabi) {
-        this.cantHabi = cantHabi;
+    public void setCantH(Integer cantH) {
+        this.cantH = cantH;
     }
 
     public Boolean getDescuento() {
@@ -51,9 +51,9 @@ public class Residencia extends HotelExtra{
 
     @Override
     public String toString() {
-        return "Residencia" +nombre+", "+ direccion+", "+ localidad+", "+ gerente
-                + "\nPropietario Privado "+privado+". Metros cuadros totales:" + mts2+". Precio Habitacion"+ precioHabi 
-                + "\nHabitaciones: " + cantHabi + " , Descuento a gremios: " + descuento + ", Campo deportivo: " + deportivo;
+        return "Residencia " +nombre+", "+ direccion+", "+ localidad+", "+ gerente
+                + "\nPropietario Privado "+privado+". Metros cuadros totales: " + mts2+". Precio Habitacion "+ precioHabi 
+                + "\nHabitaciones: " + cantH + " , Descuento a gremios: " + descuento + ", Campo deportivo: " + deportivo;
     }
     
     

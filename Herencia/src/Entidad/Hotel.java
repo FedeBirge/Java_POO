@@ -4,13 +4,15 @@
  */
 package Entidad;
 
+import java.util.Objects;
+
 /**
  *
  * @author feder
  */
 //: Cantidad de Habitaciones, Número de Camas, Cantidad de
 //Pisos, Precio de Habitaciones
-public abstract class Hotel extends Alojamiento{
+public abstract class Hotel extends Alojamiento implements Comparable<Hotel>{
     protected Integer cantHabi;
     protected Integer camas;
     protected Integer pisos;
@@ -59,6 +61,46 @@ public abstract class Hotel extends Alojamiento{
         this.precioHabi = precioHabi;
     }
     protected abstract int calcularPrecio();
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.cantHabi);
+        hash = 67 * hash + Objects.hashCode(this.camas);
+        hash = 67 * hash + Objects.hashCode(this.pisos);
+        hash = 67 * hash + Objects.hashCode(this.precioHabi);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Hotel other = (Hotel) obj;
+        if (!Objects.equals(this.cantHabi, other.cantHabi)) {
+            return false;
+        }
+        if (!Objects.equals(this.camas, other.camas)) {
+            return false;
+        }
+        if (!Objects.equals(this.pisos, other.pisos)) {
+            return false;
+        }
+        return Objects.equals(this.precioHabi, other.precioHabi);
+    }
+
+    
+    @Override
+    public int compareTo(Hotel t) {
+        return t.getPrecioHabi().compareTo(this.precioHabi);
+    }
         
     
 }

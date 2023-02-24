@@ -4,13 +4,15 @@
  */
 package Entidad;
 
+import java.util.Objects;
+
 /**
  *
  * @author feder
  */
 // se indica si es privado o no, así como la cantidad de metros
 //cuadrados que ocupa
-public class HotelExtra extends Alojamiento{
+public abstract class HotelExtra extends Alojamiento {
     protected Boolean privado;
     protected Integer mts2;
     protected Integer precioHabi;
@@ -48,5 +50,38 @@ public class HotelExtra extends Alojamiento{
     public void setPrecioHabi(Integer precioHabi) {
         this.precioHabi = precioHabi;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 61 * hash + Objects.hashCode(this.privado);
+        hash = 61 * hash + Objects.hashCode(this.mts2);
+        hash = 61 * hash + Objects.hashCode(this.precioHabi);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final HotelExtra other = (HotelExtra) obj;
+        if (!Objects.equals(this.privado, other.privado)) {
+            return false;
+        }
+        if (!Objects.equals(this.mts2, other.mts2)) {
+            return false;
+        }
+        return Objects.equals(this.precioHabi, other.precioHabi);
+    }
+
+  
+    
     
 }

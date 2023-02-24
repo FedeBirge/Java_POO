@@ -9,11 +9,11 @@ package Entidad;
  * @author feder
  */
 //Cantidad Salones de Conferencia, Cantidad de Suites, Cantidad de Limosinas
-public class Hotel5 extends Hotel4 {
+public final class Hotel5 extends Hotel4 {
 
-    public Integer salones;
-    public Integer suites;
-    public Integer limosinas;
+   private Integer salones;
+    private Integer suites;
+    private Integer limosinas;
 
     public Hotel5() {
     }
@@ -23,8 +23,7 @@ public class Hotel5 extends Hotel4 {
         this.limosinas = limosinas;
         this.salones = salones;
         this.suites = suites;
-      
-   
+
     }
 
     public Integer getSalones() {
@@ -51,17 +50,16 @@ public class Hotel5 extends Hotel4 {
         this.limosinas = limosinas;
     }
 
-       
     @Override
     public int calcularPrecio() {
-        this.precioHabi = super.calcularPrecio()+valLimo();
+        this.precioHabi = super.calcularPrecio() + valLimo();
         return this.precioHabi;
     }
-    private Integer valLimo() {
-           System.out.println(this.limosinas);
 
-           return this.limosinas*15;
-       }
+    private Integer valLimo() {
+        return this.limosinas * 15;
+    }
+
     @Override
     public String toString() {
         return "Hotel 5 estrellas: " + nombre + ", " + direccion + ", " + localidad + ", " + gerente
