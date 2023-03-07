@@ -26,10 +26,9 @@ public class Ej1Excpciones {
             Persona p = null;
             serv.esMayorDeEdad(p);
         } catch (Exception e) {
-            System.out.println(e);
-
-        }
-
+            System.out.println(e.getMessage());
+             }      
+                  
     }
 
 }
