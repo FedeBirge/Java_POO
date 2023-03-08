@@ -13,8 +13,8 @@ public class Ej8 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-              int valor = 0;
+    private static int metodo() {
+        int valor = 0;
         try {
             valor = valor + 1;
             valor = valor + Integer.parseInt("42");
@@ -29,7 +29,17 @@ public class Ej8 {
         }
         valor = valor + 1;
         System.out.println("Valor antes del return: " + valor);
-        System.out.println(valor);
+        return valor;
     }
-    
+
+    public static void main(String[] args) {
+        try {
+            System.out.println(metodo());
+        } catch (Exception e) {
+            System.err.println("Excepcion en metodo() ");
+            e.printStackTrace();
+        }
+
+    }
+
 }
