@@ -36,10 +36,7 @@ public class Guante extends Dispositivo{
     public void setArma(Boolean arma) {
         this.arma = arma;
     }
-    @Override
-    public float usar(float nivel, int tiempo) {
-        return nivel*tiempo;
-    }
+    
     @Override
     public String toString() {
              String res="";

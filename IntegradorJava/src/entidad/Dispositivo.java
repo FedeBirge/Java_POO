@@ -37,7 +37,9 @@ public abstract class Dispositivo {
     }
     
    
-    protected abstract float usar(float nivel,int tiempo);
+    public float usar(float nivel,int tiempo){
+        return nivel*tiempo;
+    }
 
     @Override
     public String toString() {

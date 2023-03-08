@@ -35,24 +35,12 @@ public class Armadura {
     private Bota botaIzq;
     private Guante guanteDer;
     private Guante guanteIzq;
-    private Casco casco;
+    private Consola consola;
+    private Sintetizador sint;
     private Integer salud;
     private Generador bateria;
 
     public Armadura() {
-    }
-
-    public Armadura(String color1, String color2, String resistencia, Bota botaDer, Bota botaIzq, Guante guanteDer, Guante guanteIzq, Casco casco, Integer salud, Generador bateria) {
-        this.color1 = color1;
-        this.color2 = color2;
-        this.resistencia = resistencia;
-        this.botaDer = botaDer;
-        this.botaIzq = botaIzq;
-        this.guanteDer = guanteDer;
-        this.guanteIzq = guanteIzq;
-        this.casco = casco;
-        this.salud = salud;
-        this.bateria = bateria;
     }
 
     public String getColor1() {
@@ -111,12 +99,20 @@ public class Armadura {
         this.guanteIzq = guanteIzq;
     }
 
-    public Casco getCasco() {
-        return casco;
+    public Consola getConsola() {
+        return consola;
     }
 
-    public void setCasco(Casco casco) {
-        this.casco = casco;
+    public void setConsola(Consola consola) {
+        this.consola = consola;
+    }
+
+    public Sintetizador getSint() {
+        return sint;
+    }
+
+    public void setSint(Sintetizador sint) {
+        this.sint = sint;
     }
 
     public Integer getSalud() {
@@ -134,14 +130,14 @@ public class Armadura {
     public void setBateria(Generador bateria) {
         this.bateria = bateria;
     }
-
     @Override
     public String toString() {
-        return "Armadura: Color primario: "+ color1+ ", Color primario:"+color2 + ", Tipo deresistencia" + resistencia 
+        return "<--Armadura-->"
+                + "\nColor primario: "+ color1+ ", Color secundarioo: "+color2 + ", Tipo de resistencia: " + resistencia 
                 + "\nBota Derecha: " + botaDer + ", Bota Izquierda: " + botaIzq 
                 + "\nGuante Derecho: " + guanteDer + ", Guante Izquierdo: " + guanteIzq 
-                + "\nCasco: " + casco 
-                + "\nSalud: " + salud + "Bateria: " + bateria  ;
+                + "\nConsola: " + consola + ", Sintetizador: "+ sint
+                + "\nSalud: " + salud + ", Bateria: " + bateria  ;
     }
     
     

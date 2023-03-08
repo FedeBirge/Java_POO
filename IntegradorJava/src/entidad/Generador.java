@@ -9,27 +9,39 @@ package entidad;
  * @author feder
  */
 public class Generador {
-    private Float estado;
+    private Float cargaActual;
+    private Float cargaMax;
 
     public Generador() {
-        estado = Float.MAX_VALUE;
+        cargaMax = Float.MAX_VALUE;
     }
 
-    public Generador(Float estado) {
-        this.estado = estado;
+    public Generador(Float cargaActual, Float cargaMax) {
+        this.cargaActual = cargaActual;
+        this.cargaMax = cargaMax;
     }
 
-    public Float getEstado() {
-        return estado;
+    public Float getCargaActual() {
+        return cargaActual;
     }
 
-    public void setEstado(Float estado) {
-        this.estado = estado;
+    public void setCargaActual(Float cargaActual) {
+        this.cargaActual = cargaActual;
     }
+
+    public Float getCargaMax() {
+        return cargaMax;
+    }
+
+    public void setCargaMax(Float cargaMax) {
+        this.cargaMax = cargaMax;
+    }
+
+    
 
     @Override
     public String toString() {
-        return " Nivel de carga: " + estado  ;
+        return " Nivel de carga: " + cargaActual ;
     }
     
     

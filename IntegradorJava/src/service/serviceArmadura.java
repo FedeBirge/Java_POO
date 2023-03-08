@@ -6,9 +6,10 @@ package service;
 
 import entidad.Armadura;
 import entidad.Bota;
-import entidad.Casco;
+import entidad.Consola;
 import entidad.Generador;
 import entidad.Guante;
+import entidad.Sintetizador;
 
 /**
  *
@@ -17,6 +18,8 @@ import entidad.Guante;
 public class serviceArmadura {
 
     public serviceArmadura() {
+        Armadura ar = new Armadura();
+        System.out.println(ar);
         
     }
     
@@ -28,7 +31,7 @@ public class serviceArmadura {
         Generador bat = arm.getBateria();
         Bota bot = arm.getBotaDer();
         float consumida =bot.getConsumo()*bot.usar(1, temp)*2;
-        bat.setEstado(bat.getEstado()-consumida);
+        bat.setCargaActual(bat.getCargaActual()-consumida);
         arm.setBateria(bat);
         return consumida;
     }
@@ -38,7 +41,7 @@ public class serviceArmadura {
         Generador bat = arm.getBateria();
         Bota bot = arm.getBotaDer();
         float consumida =bot.getConsumo()*bot.usar(2, temp)*2;
-        bat.setEstado(bat.getEstado()-consumida);
+        bat.setCargaActual(bat.getCargaActual()-consumida);
         arm.setBateria(bat);
         return consumida;
     } 
@@ -49,7 +52,7 @@ public class serviceArmadura {
         Generador bat = arm.getBateria();
         Bota bot = arm.getBotaDer();
         float consumida =bot.getConsumo()*bot.usar(3, temp)*2;
-        bat.setEstado(bat.getEstado()-consumida);
+        bat.setCargaActual(bat.getCargaActual()-consumida);
         arm.setBateria(bat);
         return consumida;
     } 
@@ -61,7 +64,7 @@ public class serviceArmadura {
         Bota bot = arm.getBotaDer();
         Guante gua = arm.getGuanteDer();
         float consumida =propulsar(arm, temp)+ gua.getConsumo()*gua.usar(2, temp)*2;
-        bat.setEstado(bat.getEstado()-consumida);
+        bat.setCargaActual(bat.getCargaActual()-consumida);
         arm.setBateria(bat);
         return consumida;
    }
@@ -70,19 +73,38 @@ public class serviceArmadura {
         Generador bat = arm.getBateria();       
         Guante gua = arm.getGuanteDer();
         float consumida =gua.getConsumo()*gua.usar(3, temp);
-        bat.setEstado(bat.getEstado()-consumida);
+        bat.setCargaActual(bat.getCargaActual()-consumida);
         arm.setBateria(bat);
         return consumida;       
    }
 //   Cada vez que se escribe en la consola o se habla a través del sintetizador se consume lo
 //establecido en estos dispositivos. Solo se usa en nivel básico. 
 //   
-   public float usoCasco(Armadura arm, int temp){
-        Generador bat = arm.getBateria();       
-        Casco cas = arm.getCasco();
-        float consumida =cas.getConsumo()*cas.usar(1, temp);
-        bat.setEstado(bat.getEstado()-consumida);
+  public float usarConsola(Armadura arm, int temp){
+      Generador bat = arm.getBateria();       
+        Consola c = arm.getConsola();
+        float consumida =c.getConsumo()*c.usar(1, temp);
+        bat.setCargaActual(bat.getCargaActual()-consumida);
         arm.setBateria(bat);
-        return consumida;   
-   }
+        return consumida;      
+      
+  }
+  public float usarSintetizador(Armadura arm, int temp){
+      Generador bat = arm.getBateria();       
+        Sintetizador s = arm.getSint();
+        float consumida =s.getConsumo()*s.usar(1, temp);
+        bat.setCargaActual(bat.getCargaActual()-consumida);
+        arm.setBateria(bat);
+        return consumida;      
+      
+  }
+  
+//  Mostrando Estado
+//Hacer un método que JARVIS muestre el estado de todos los dispositivos y
+  //toda la información de la Armadura. 
+  public void mostrarEstado(Armadura arm){
+      System.out.println(arm);
+      
+  }
+  
 }

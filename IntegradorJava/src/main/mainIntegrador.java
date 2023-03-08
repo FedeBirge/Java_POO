@@ -4,6 +4,8 @@
  */
 package main;
 
+import service.serviceArmadura;
+
 /**
  *
  * @author feder
@@ -14,7 +16,9 @@ public class mainIntegrador {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        serviceArmadura serv = new serviceArmadura();
+        
+        
     }
     
 }

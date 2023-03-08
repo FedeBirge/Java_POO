@@ -8,41 +8,42 @@ package entidad;
  *
  * @author feder
  */
-public class Bota extends Dispositivo{
-    private Boolean propu;
+public class Sintetizador extends Dispositivo {
 
-    public Bota() {
+    private Boolean activo;
+
+    public Sintetizador() {
     }
 
-    public Bota(Boolean propu) {
-        this.propu = propu;
+    public Sintetizador(Boolean activo) {
+        this.activo = activo;
     }
 
-    public Bota(Boolean propu, Float consumo, Boolean roto) {
+    public Sintetizador(Boolean activo, Float consumo, Boolean roto) {
         super(consumo, roto);
-        this.propu = propu;
+        this.activo = activo;
     }
 
-    public Boolean getPropu() {
-        return propu;
+    public Boolean getActivo() {
+        return activo;
     }
 
-    public void setPropu(Boolean propu) {
-        this.propu = propu;
-    }  
-   
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
     @Override
     public String toString() {
-         String res="";
+        String res="";
          String r="";
         if (roto){
             res = "Daniado";
         }
         else
         {
-             res = "Sano";
+             res = "Sana";
         }
-        if (propu){
+        if (activo){
             r = "Activo";
         }
         else
@@ -50,10 +51,8 @@ public class Bota extends Dispositivo{
              r = "Apagado";
         }
         
-        return  "Estado: " + res+", Propulsor: "+r;
+        return  "Estado: " + res+ " "+r;
     }
-
-    
     
     
 }
