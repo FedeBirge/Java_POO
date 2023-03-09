@@ -43,6 +43,21 @@ public class Armadura {
     public Armadura() {
     }
 
+    public Armadura(String color1, String color2, String resistencia, Bota botaDer, Bota botaIzq, Guante guanteDer, Guante guanteIzq, Consola consola, Sintetizador sint, Integer salud, Generador bateria) {
+        this.color1 = color1;
+        this.color2 = color2;
+        this.resistencia = resistencia;
+        this.botaDer = botaDer;
+        this.botaIzq = botaIzq;
+        this.guanteDer = guanteDer;
+        this.guanteIzq = guanteIzq;
+        this.consola = consola;
+        this.sint = sint;
+        this.salud = salud;
+        this.bateria = bateria;
+    }
+    
+
     public String getColor1() {
         return color1;
     }

@@ -15,8 +15,9 @@ public class mainIntegrador {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         serviceArmadura serv = new serviceArmadura();
+        
         
         
     }

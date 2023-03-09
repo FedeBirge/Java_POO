@@ -40,6 +40,31 @@ public abstract class Dispositivo {
     public float usar(float nivel,int tiempo){
         return nivel*tiempo;
     }
+    public boolean seRompe(){
+        int prob = (int) (Math.random()*10);
+        if (prob<=3) {
+            System.out.println("rompe "+prob);
+            
+            return true;
+            
+        } else {
+
+            return false;
+        }
+    }
+    public boolean reparar(){
+        int prob = (int) (Math.random()*10);
+        
+        if (prob>4) {
+            setRoto(Boolean.TRUE);
+            return false;
+            
+        } else {
+            System.out.println("repara "+prob);
+            setRoto(Boolean.FALSE);
+            return true;
+        }
+    }
 
     @Override
     public String toString() {
