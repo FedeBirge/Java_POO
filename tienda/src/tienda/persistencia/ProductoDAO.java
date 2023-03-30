@@ -130,21 +130,50 @@ public final class ProductoDAO extends DAO {
             throw new Exception("Error de sistema");
         }
     }
-//        public void modificarUsuario(Usuario usuario) throws Exception {
-//        try {
-//            if (usuario == null) {
-//                throw new Exception("Debe indicar el usuario que desea modificar");
-//            }
-//
-//            String sql = "UPDATE Usuario SET "
-//                    + "clave = '" + usuario.getClave() + "' WHERE correoElectronico = '" + usuario.getCorreoElectronico() + "'";
-//
-//            insertarModificarEliminar(sql);
-//        } catch (Exception e) {
-//            throw e;
-//        } finally {
-//            desconectarBase();
-//        }
-//    }
+
+    public Producto buscarProductoId(int id) throws Exception {
+
+        try {
+
+            String sql = "SELECT * FROM producto "
+                    + " WHERE codigo='" + id + "';";
+
+            consultarBase(sql);
+
+            Producto producto = null;
+
+            while (resultado.next()) {
+                producto = new Producto();
+                producto.setCodigo(resultado.getInt(1));
+                producto.setNombre(resultado.getString(2));
+                producto.setPrecio(resultado.getDouble(3));
+                producto.setCodigoFabricante(resultado.getInt(4));
+            }
+            desconectarBase();
+            return producto;
+        } catch (Exception e) {
+            desconectarBase();
+            throw e;
+        }
+    }
+
+    public void modificarProducto(Producto producto) throws Exception {
+        try {
+            if (producto == null) {
+                throw new Exception("Debe indicar el usuario que desea modificar");
+            }
+
+            String sql = "UPDATE producto SET\n"
+                    + "nombre='" + producto.getNombre() + "', precio='" + producto.getPrecio()
+                    + "', codigo_fabricante='" + producto.getCodigoFabricante() + "'"
+                    + "WHERE codigo='" + producto.getCodigo() + "';";
+
+            insertarModificarEliminar(sql);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            desconectarBase();
+        }
+    }
 
 }

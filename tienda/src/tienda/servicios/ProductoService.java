@@ -15,9 +15,11 @@ public class ProductoService {
 
     private Scanner scan = new Scanner(System.in).useDelimiter("\n");
     private ProductoDAO dao;
+    private FabricanteService servf;
 
     public ProductoService() {
         this.dao = new ProductoDAO();
+        this.servf = new FabricanteService();
     }
 
     public void crearProducto() throws Exception {
@@ -31,36 +33,53 @@ public class ProductoService {
             producto.setPrecio(scan.nextDouble());
             System.out.println("Ingrese el nombre del fabricante");
             String fab = scan.next();
-            FabricanteService servf = new FabricanteService();
             Fabricante fabricante = servf.buscarFabricanteNombre(fab);
-            
+
             if (fabricante == null) {
                 servf.crearFabricante(fab);
                 fabricante = servf.buscarFabricanteNombre(fab);
             }
-            producto.setCodigoFabricante(fabricante.getCodigo());
-//            
-//            //Validamos
-//            if (correoElectronico == null || correoElectronico.trim().isEmpty()) {
-//                throw new Exception("Debe indicar el correo electrónico");
-//            }
-//            if (correoElectronico.contains("@") == false) {
-//                throw new Exception("El correo electrónico es incorrecto");
-//            }
-//            if (clave == null || clave.trim().isEmpty()) {
-//                throw new Exception("Debe indicar la clave");
-//            }
-//            if (clave.length() < 8) {
-//                throw new Exception("La clave no puede tener menos de 8 caracteres");
-//            }
-//            if (buscarUsuarioPorCorreoElectronico(correoElectronico) != null) {
-//                throw new Exception("Ya existe un usuario con el correo electrónico indicado " + correoElectronico);
-//            }         
+            producto.setCodigoFabricante(fabricante.getCodigo());    
 
             dao.guardarProducto(producto);
         } catch (Exception e) {
             throw e;
         }
+    }
+    public void modificarProducto(Producto producto) throws Exception{
+          try {
+              System.out.println("Ingrese el nuevo nombre del producto:");
+              producto.setNombre(scan.next());
+              System.out.println("Ingrese en nuevo precio del producto: ");
+              producto.setPrecio(scan.nextDouble());
+              System.out.println("Ingrese el nombre del fabricante");
+              String fab = scan.next();
+              Fabricante fabricante = servf.buscarFabricanteNombre(fab);
+
+            if (fabricante == null) {
+                servf.crearFabricante(fab);
+                fabricante = servf.buscarFabricanteNombre(fab);
+            }
+            producto.setCodigoFabricante(fabricante.getCodigo());    
+            //Validamos
+            if (producto.getNombre() == null || producto.getNombre().trim().isEmpty()) {
+                throw new Exception("Debe indicar el nombre");
+            }
+
+            if (producto.getPrecio() <= 0 ) {
+                throw new Exception("Debe indicar el precio");
+            }
+
+            if (producto.getCodigoFabricante() <0) {
+                throw new Exception("Debe indicar el id del fabricante");
+            }
+            
+            dao.modificarProducto(producto);
+        } catch (Exception e) {
+            throw e;
+        }
+    
+        
     }
 
     public Collection<Producto> listarProductos() throws Exception {
@@ -250,11 +269,30 @@ public class ProductoService {
                     menu();
                     break;
                 case 7:
+                    System.out.println("Ingrese el nombre del fabricante");
+                    String nombre = scan.next();
+                    servf.crearFabricante(nombre);
                     presioneTecla();
                     menu();
                     break;
                 case 8:
+                    System.out.println("Elija el producto a modificar de la siguiente lista:");
+                    System.out.println("");
                     imprimirProductos();
+                    System.out.println("Ingrese el (ID): ");
+                    int cod = scan.nextInt();
+                    Producto producto = dao.buscarProductoId(cod);
+                      
+                    if (producto == null){
+                        System.out.println("EL producto no existe. Ingreselo en la opcion 6.");
+                    }
+                    else{
+                        System.out.println("EL producto a modificar es:");
+                        System.out.println(producto);
+                        modificarProducto(producto);
+                        System.out.println("Producto modificado:");
+                        System.out.println(producto);
+                    }
                     presioneTecla();
                     menu();
                     break;
