@@ -156,18 +156,18 @@ public class ProductoService {
                 }
             }
         } catch (Exception e) {
-            throw e;
+            System.out.println(e.getMessage());
         }
     }
 
     public void imprimirNombrePrecioProductosPrecio() throws Exception {
-
+      
         try {
             //Listar porductos
             Collection<Producto> productos = listarProductosPrecios();
             //Imprimimos los productos, todos los argumentos
             if (productos.isEmpty()) {
-                throw new Exception("No existen productos para imprimir");
+                System.out.println("No existen productos para imprimir");
             } else {
                 for (Producto p : productos) {
                     System.out.println(p.getNombre() + " $ " + p.getPrecio());
@@ -306,7 +306,10 @@ public class ProductoService {
             }
 
         } catch (Exception e) {
-            throw e;
+//            throw e;
+            System.out.println("DEBE ingresar un numero, no simbolos ni letras");
+            presioneTecla();
+            menu();
         }
     }
 

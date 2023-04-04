@@ -1,4 +1,5 @@
-package tienda.persistencia;
+package estancias.persistencia;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,14 +11,14 @@ import java.sql.Statement;
  * @author feder
  */
 public abstract class DAO {
-    
+
     protected Connection conexion = null;
     protected ResultSet resultado = null;
     protected Statement sentencia = null;
-    
+
     private final String USER = "root";
     private final String PASSWORD = "root";
-    private final String DATABASE = "tienda";
+    private final String DATABASE = "estancias_exterior";
 //    private final String DRIVER = "com.mysql.jdbc.Driver";
     private final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
@@ -61,7 +62,7 @@ public abstract class DAO {
                 COMMIT;
             
                 **Sin rollback igual anda */
-             
+
             throw ex;
         } finally {
             desconectarBase();
@@ -78,5 +79,4 @@ public abstract class DAO {
         }
     }
 
-    
 }
