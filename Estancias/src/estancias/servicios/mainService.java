@@ -25,6 +25,8 @@ public class mainService {
         try {
             FamiliaService servF = new FamiliaService();
             CasaService casaServ = new CasaService();
+            ClienteService cliServ = new ClienteService();
+            EstanciaService estServ = new EstanciaService();
             System.out.println("<-------------------------> MENÚ ESTANCIAS <------------------------->");
             System.out.println("");
             System.out.println("1. Listar aquellas familias que tienen al menos 3 hijos y\n"
@@ -79,12 +81,12 @@ public class mainService {
                     menu();
                     break;
                 case 5:
-
+                    cliServ.ListarCLientesOp5();
                     presioneTecla();
                     menu();
                     break;
                 case 6:
-
+                    estServ.imprimirEstanciasOp6();
                     presioneTecla();
                     menu();
                     break;

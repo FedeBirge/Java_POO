@@ -27,9 +27,9 @@ public class CasaService {
     public Collection<Casa> listarCasasOp2() throws Exception{
         try {
 
-            Collection<Casa> familias = dao.listarCasasDisponibleAgosto();
+            Collection<Casa> casas = dao.listarCasasDisponibleAgosto();
 
-         return familias;
+         return casas;
         } catch (Exception e) {
             throw e;
         }
