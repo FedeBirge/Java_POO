@@ -1,5 +1,6 @@
 package estancias.servicios;
 
+import estancias.entidades.Casa;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -91,20 +92,45 @@ public class mainService {
                     menu();
                     break;
                 case 7:
-
+                    casaServ.listarImprimirCasasOp7();
                     presioneTecla();
                     menu();
                     break;
                 case 8:
-
+                    casaServ.imprimirCasasPais();
                     presioneTecla();
                     menu();
                     break;
                 case 9:
+                    casaServ.imprimirCasasLimpias();
                     presioneTecla();
                     menu();
                     break;
                 case 10:
+                    System.out.println("Elija un casa de la siguiente lista: ");
+                    casaServ.listarCasas();
+                    System.out.println("Ingrese un ID: ");
+                    int id = scan.nextInt();
+                    Casa  casa= casaServ.buscarCasaId(id);
+                    System.out.println("");
+                    if(casa==null){
+                        System.out.println("El id ingresado no existe");
+                    }
+                    else{
+                        System.out.println("Ingrese fecha de ingreso(formato AAAA-MM-DD)");
+                        String ing = scan.next();
+                        System.out.println("Ingrese fecha de salida(formato AAAA-MM-DD)");
+                        String sal = scan.next();
+                        if (true)//casaServ.casaDisponible(id,ing,sal)
+                        {
+                            //inserto en estancia 
+                            System.out.println("inserto");
+                        }
+                        else{
+                            System.out.println("La casa no está disponible en las fechas ingresadas");
+                        }
+                    }
+                    
                     presioneTecla();
                     menu();
                     break;

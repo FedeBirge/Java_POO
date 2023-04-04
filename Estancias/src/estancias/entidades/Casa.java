@@ -1,23 +1,25 @@
 package estancias.entidades;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
  * @author feder
  */
-public class Casa {
-    private int id_casa; 
-    private String calle; 
-    private int numero; 
-    private String codigo_postal; 
-    private String ciudad; 
-    private String pais; 
-    private LocalDate fecha_desde; 
-    private LocalDate fecha_hasta; 
-    private int tiempo_minimo; 
-    private int tiempo_maximo; 
-    private float precio_habitacion; 
+public class Casa implements Comparable<Casa> {
+
+    private Integer id_casa;
+    private String calle;
+    private int numero;
+    private String codigo_postal;
+    private String ciudad;
+    private String pais;
+    private LocalDate fecha_desde;
+    private LocalDate fecha_hasta;
+    private int tiempo_minimo;
+    private int tiempo_maximo;
+    private float precio_habitacion;
     private String tipo_vivienda;
 
     public Casa() {
@@ -135,13 +137,82 @@ public class Casa {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.id_casa);
+        hash = 89 * hash + Objects.hashCode(this.calle);
+        hash = 89 * hash + this.numero;
+        hash = 89 * hash + Objects.hashCode(this.codigo_postal);
+        hash = 89 * hash + Objects.hashCode(this.ciudad);
+        hash = 89 * hash + Objects.hashCode(this.pais);
+        hash = 89 * hash + Objects.hashCode(this.fecha_desde);
+        hash = 89 * hash + Objects.hashCode(this.fecha_hasta);
+        hash = 89 * hash + this.tiempo_minimo;
+        hash = 89 * hash + this.tiempo_maximo;
+        hash = 89 * hash + Float.floatToIntBits(this.precio_habitacion);
+        hash = 89 * hash + Objects.hashCode(this.tipo_vivienda);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Casa other = (Casa) obj;
+        if (this.numero != other.numero) {
+            return false;
+        }
+        if (this.tiempo_minimo != other.tiempo_minimo) {
+            return false;
+        }
+        if (this.tiempo_maximo != other.tiempo_maximo) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.precio_habitacion) != Float.floatToIntBits(other.precio_habitacion)) {
+            return false;
+        }
+        if (!Objects.equals(this.calle, other.calle)) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo_postal, other.codigo_postal)) {
+            return false;
+        }
+        if (!Objects.equals(this.ciudad, other.ciudad)) {
+            return false;
+        }
+        if (!Objects.equals(this.pais, other.pais)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipo_vivienda, other.tipo_vivienda)) {
+            return false;
+        }
+        if (!Objects.equals(this.id_casa, other.id_casa)) {
+            return false;
+        }
+        if (!Objects.equals(this.fecha_desde, other.fecha_desde)) {
+            return false;
+        }
+        return Objects.equals(this.fecha_hasta, other.fecha_hasta);
+    }
+
+    @Override
     public String toString() {
-        return "Casa ID: " + id_casa + ", " + calle + " " + numero + ", C.P " + codigo_postal 
-                + ". " + ciudad + ", " + pais + ",\nDisponible desde " + fecha_desde + ", Disponible hasta " + fecha_hasta 
+        return "Casa ID: " + id_casa + ", " + calle + " " + numero + ", C.P " + codigo_postal
+                + ". " + ciudad + ", " + pais + ",\nDisponible desde " + fecha_desde + ", Disponible hasta " + fecha_hasta
                 + ".\nPeriodo mínimo de estadía: " + tiempo_minimo + " dias, máximo " + tiempo_maximo + " dias."
                 + "\nPrecio habitacion por día :" + precio_habitacion + ", vivienda tipo: " + tipo_vivienda;
     }
-    
-    
-    
+
+    @Override
+    public int compareTo(Casa t) {
+        return this.id_casa.compareTo(t.getId_casa());
+    }
+
 }
