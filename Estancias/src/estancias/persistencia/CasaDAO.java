@@ -1,7 +1,7 @@
 package estancias.persistencia;
 
-
 import estancias.entidades.Casa;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -128,7 +128,78 @@ public final class CasaDAO extends DAO {
             throw new Exception("Error de sistema");
         }
     }
-    
-    
 
+    public Collection<Casa> listarCasasDisponibleAgosto() throws Exception {
+        try {
+            String sql = "SELECT * FROM casas\n"
+                    + "WHERE fecha_desde >= '2020-08-01' AND fecha_hasta <='2020-08-31'\n"
+                    + "AND pais LIKE 'Reino Unido'; ";
+
+            consultarBase(sql);
+
+            Casa casa = null;
+            Collection<Casa> casas = new ArrayList();
+            while (resultado.next()) {
+                casa = new Casa();
+                casa.setId_casa(resultado.getInt(1));
+                casa.setCalle(resultado.getString(2));
+                casa.setNumero(resultado.getInt(3));
+                casa.setCodigo_postal(resultado.getString(4));
+                casa.setCiudad(resultado.getString(5));
+                casa.setPais(resultado.getString(6));
+                casa.setFecha_desde(resultado.getDate(7).toLocalDate());
+                casa.setFecha_hasta(resultado.getDate(8).toLocalDate());
+                casa.setTiempo_minimo(resultado.getInt(9));
+                casa.setTiempo_maximo(resultado.getInt(10));
+                casa.setPrecio_habitacion(resultado.getFloat(11));
+                casa.setTipo_vivienda(resultado.getString(12));
+                casas.add(casa);
+
+            }
+            desconectarBase();
+            return casas;
+        } catch (Exception e) {
+            e.printStackTrace();
+            desconectarBase();
+            throw new Exception("Error de sistema");
+        }
+
+    }
+
+    public Collection<Casa> listarCasasDisponibleFechasOp4(LocalDate fecha, int tiempo) throws Exception {
+        try {
+            String sql = "SELECT * FROM casas\n"
+                    + "WHERE '"+fecha+"' BETWEEN fecha_desde AND fecha_hasta\n"
+                    + "AND "+tiempo+" BETWEEN tiempo_minimo AND tiempo_maximo;";
+
+            consultarBase(sql);
+
+            Casa casa = null;
+            Collection<Casa> casas = new ArrayList();
+            while (resultado.next()) {
+                casa = new Casa();
+                casa.setId_casa(resultado.getInt(1));
+                casa.setCalle(resultado.getString(2));
+                casa.setNumero(resultado.getInt(3));
+                casa.setCodigo_postal(resultado.getString(4));
+                casa.setCiudad(resultado.getString(5));
+                casa.setPais(resultado.getString(6));
+                casa.setFecha_desde(resultado.getDate(7).toLocalDate());
+                casa.setFecha_hasta(resultado.getDate(8).toLocalDate());
+                casa.setTiempo_minimo(resultado.getInt(9));
+                casa.setTiempo_maximo(resultado.getInt(10));
+                casa.setPrecio_habitacion(resultado.getFloat(11));
+                casa.setTipo_vivienda(resultado.getString(12));
+                casas.add(casa);
+
+            }
+            desconectarBase();
+            return casas;
+        } catch (Exception e) {
+            e.printStackTrace();
+            desconectarBase();
+            throw new Exception("Error de sistema");
+        }
+
+    }
 }

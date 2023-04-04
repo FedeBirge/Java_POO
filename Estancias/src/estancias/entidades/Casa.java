@@ -138,7 +138,7 @@ public class Casa {
     public String toString() {
         return "Casa ID: " + id_casa + ", " + calle + " " + numero + ", C.P " + codigo_postal 
                 + ". " + ciudad + ", " + pais + ",\nDisponible desde " + fecha_desde + ", Disponible hasta " + fecha_hasta 
-                + ".\nPerdio mínimo de estadía: " + tiempo_minimo + " dias, máximo " + tiempo_maximo + " dias."
+                + ".\nPeriodo mínimo de estadía: " + tiempo_minimo + " dias, máximo " + tiempo_maximo + " dias."
                 + "\nPrecio habitacion por día :" + precio_habitacion + ", vivienda tipo: " + tipo_vivienda;
     }
     

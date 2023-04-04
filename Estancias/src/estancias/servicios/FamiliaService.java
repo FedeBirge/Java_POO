@@ -10,13 +10,14 @@ import java.util.Scanner;
  * @author feder
  */
 public class FamiliaService {
+
     private Scanner scan;
-    private  FamiliaDAO dao;
+    private FamiliaDAO dao;
 
     public FamiliaService() {
         scan = new Scanner(System.in).useDelimiter("\n");
         dao = new FamiliaDAO();
-        
+
     }
 
     public void presioneTecla() {
@@ -24,13 +25,23 @@ public class FamiliaService {
         System.out.println("Presione ENTER para continuar...");
         String letra = scan.next();
     }
-    
-    public Collection<Familia> listarFamiliasOp1() throws Exception{
-         try {
+
+    public Collection<Familia> listarFamiliasOp1() throws Exception {
+        try {
 
             Collection<Familia> familias = dao.listarOp1();
 
-         return familias;
+            return familias;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+     public Collection<Familia> listarFamiliasOp3() throws Exception {
+        try {
+
+            Collection<Familia> familias = dao.listarFamiliasHotmail();
+
+            return familias;
         } catch (Exception e) {
             throw e;
         }
@@ -51,7 +62,8 @@ public class FamiliaService {
 //        } catch (Exception e) {
 //            throw e;
 //        }
-          public void imprimirFamiliasOp1() throws Exception {
+
+    public void imprimirFamiliasOp1() throws Exception {
 
         try {
             //Listar porductos
@@ -68,6 +80,23 @@ public class FamiliaService {
             throw e;
         }
     }
+    public void imprimirFamiliasOp3() throws Exception {
+
+        try {
+            //Listar porductos
+            Collection<Familia> productos = listarFamiliasOp3();
+            //Imprimimos los productos, todos los argumentos
+            if (productos.isEmpty()) {
+                throw new Exception("No existen productos para imprimir");
+            } else {
+                for (Familia p : productos) {
+                    System.out.println(p);
+                }
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
     
-    
+
 }

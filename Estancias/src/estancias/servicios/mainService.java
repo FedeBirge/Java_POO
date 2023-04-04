@@ -1,5 +1,6 @@
 package estancias.servicios;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
@@ -23,6 +24,7 @@ public class mainService {
     public void menu() throws Exception {
         try {
             FamiliaService servF = new FamiliaService();
+            CasaService casaServ = new CasaService();
             System.out.println("<-------------------------> MENÚ ESTANCIAS <------------------------->");
             System.out.println("");
             System.out.println("1. Listar aquellas familias que tienen al menos 3 hijos y\n"
@@ -57,17 +59,22 @@ public class mainService {
                     menu();
                     break;
                 case 2:
-
+                    casaServ.imprimirCasasOp2();
                     presioneTecla();
                     menu();
                     break;
                 case 3:
-
+                    servF.imprimirFamiliasOp3();
                     presioneTecla();
                     menu();
                     break;
                 case 4:
-
+                    System.out.println("Ingrese una fecha con este fomato: AAAA-MM-DD");
+                    String fecha = scan.next();
+                    System.out.println("Ingrese cantidad de dias de estadia:");
+                    int dias = scan.nextInt();
+                    System.out.println(LocalDate.parse(fecha));
+                    casaServ.listarImprimirCasasOp4(LocalDate.parse(fecha), dias);
                     presioneTecla();
                     menu();
                     break;
