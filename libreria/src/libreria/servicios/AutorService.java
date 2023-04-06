@@ -20,11 +20,11 @@ public class AutorService {
 
     }
 
-    public Autor crearAutor() {
+    public Autor crearAutor(String nombre) {
         Autor autor = new Autor();
         try {
-            System.out.println("Ingrese el nombre del autor");
-            autor.setNombre(scan.next());           
+//            System.out.println("Ingrese el nombre del autor");
+            autor.setNombre(nombre);           
             DAO.guardarAutor(autor);
             return autor;
         } catch (Exception e) {
@@ -37,7 +37,15 @@ public class AutorService {
         try {
             return DAO.buscarPorId(id);
         } catch (Exception e) {
-            System.out.println("Error al buscar autor " + e.getMessage());
+            System.out.println("Error al buscar autor por id" + e.getMessage());
+            return null;
+        }
+    }
+    public Autor buscarPorNombre(String nombre) {
+        try {
+            return DAO.buscarPorNombre(nombre);
+        } catch (Exception e) {
+            System.out.println("Error al buscar autor por nombre " + e.getMessage());
             return null;
         }
     }

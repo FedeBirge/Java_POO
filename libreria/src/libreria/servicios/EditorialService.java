@@ -24,11 +24,11 @@ public class EditorialService {
 
     }
 
-    public Editorial crearEditorial() {
+    public Editorial crearEditorial(String nombre) {
         Editorial editorial = new Editorial();
         try {
-            System.out.println("Ingrese el nombre de la editorial");
-            editorial.setNombre(scan.next());
+//            System.out.println("Ingrese el nombre de la editorial");
+            editorial.setNombre(nombre);
             DAO.guardarEditorial(editorial);
             return editorial;
         } catch (Exception e) {
@@ -62,6 +62,14 @@ public class EditorialService {
         } catch (Exception e) {
             System.out.println("Error al listar editorial " + e.getMessage());
             e.printStackTrace();
+            return null;
+        }
+    }
+      public Editorial buscarPorNombre(String nombre) {
+        try {
+            return DAO.buscarPorNombre(nombre);
+        } catch (Exception e) {
+            System.out.println("Error al buscar editorial por nombre " + e.getMessage());
             return null;
         }
     }

@@ -33,5 +33,12 @@ public class AutorDAO extends DAO<Autor>{
         desconectar();
         return autor;
     }
+    public Autor buscarPorNombre(String nombre) throws Exception {
+        conectar();
+        Autor autor = null;
+        autor = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre").setParameter("nombre", nombre).getSingleResult();
+        desconectar();
+        return autor;
+    }
     
 }

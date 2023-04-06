@@ -4,6 +4,8 @@
  */
 package libreria;
 
+import libreria.entidades.Autor;
+import libreria.servicios.AutorService;
 import libreria.servicios.LibreriaService;
 
 /**
@@ -19,8 +21,9 @@ public class Libreria {
      
         try {
             LibreriaService serv = new LibreriaService();
+            AutorService servA = new AutorService();
             serv.menu();
-                    
+             
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

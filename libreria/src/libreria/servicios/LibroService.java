@@ -6,6 +6,8 @@ package libreria.servicios;
 
 import java.util.List;
 import java.util.Scanner;
+import libreria.entidades.Autor;
+import libreria.entidades.Editorial;
 import libreria.entidades.Libro;
 import libreria.persistencia.LibroDAO;
 
@@ -26,9 +28,11 @@ public class LibroService {
 
     public Libro crearLibro() {
         Libro libro = new Libro();
+        AutorService servA = new AutorService();
+        EditorialService servE = new EditorialService();
         try {
-            System.out.println("Ingrese el ISDN del libro");
-            libro.setIsbn(scan.nextLong());
+//            System.out.println("Ingrese el ISDN del libro");
+//            libro.setIsbn(scan.nextLong());
             System.out.println("Ingrese el titulo del libro");
             libro.setTitulo(scan.next());
             System.out.println("Ingrese el año");
@@ -38,8 +42,22 @@ public class LibroService {
             libro.setEjemRestantes(libro.getEjemRestantes());
             libro.setEjemPrestados(0);
             System.out.println("Ingrese el nombre del autor ");
+            String nombre = scan.next();
+            Autor a = servA.buscarPorNombre(nombre);
+            if (a == null) {
+                a = servA.crearAutor(nombre);
+            }
+            libro.setAutor(a);
+
             //Autor
             System.out.println("Ingrese el nombre de la editorial");
+
+            nombre = scan.next();
+            Editorial e = servE.buscarPorNombre(nombre);
+            if (e == null) {
+                e = servE.crearEditorial(nombre);
+            }
+            libro.setEditorial(e);
             // Editorial
 
             DAO.guardarLibro(libro);
@@ -51,7 +69,7 @@ public class LibroService {
         }
     }
 
-    public Libro buscarPorDni(Long isbn) {
+    public Libro buscarPorId(Long isbn) {
         try {
             return DAO.buscarPorId(isbn);
         } catch (Exception e) {
@@ -60,7 +78,7 @@ public class LibroService {
         }
     }
 
-    public boolean eliminarPorDni(Long isbn) {
+    public boolean eliminarPorId(Long isbn) {
         try {
             DAO.eliminarLibro(isbn);
             return true;
