@@ -9,20 +9,23 @@ import libreria.entidades.Libro;
  * @author feder
  */
 public class LibreriaService {
-  private Scanner scan = new Scanner(System.in).useDelimiter("\n");
+
+    private Scanner scan = new Scanner(System.in).useDelimiter("\n");
+
     public LibreriaService() {
-        
 
     }
-   public void presioneTecla() {
+
+    public void presioneTecla() {
         System.out.println("");
         System.out.println("Presione ENTER para continuar...");
         String letra = scan.next();
     }
+
     public void menu() throws Exception {
         AutorService servA = new AutorService();
-        LibroService servL = new LibroService();               
-                
+        LibroService servL = new LibroService();
+
         try {
 
             System.out.println("<*************** MENÚ JPA ***************>");
@@ -32,7 +35,7 @@ public class LibreriaService {
             System.out.println("3. Búsqueda de un libro por Título.");
             System.out.println("4. Búsqueda de un libro/s por nombre de Autor.");
             System.out.println("5. Búsqueda de un libro/s por nombre de Editorial");
-     
+
             System.out.println("6. Salir");
             System.out.println("");
             System.out.print("Ingrese una opcion: ");
@@ -43,10 +46,9 @@ public class LibreriaService {
                     System.out.println("Ingrese en nombre del autor a buscar: ");
                     String nombre = scan.next();
                     Autor a = servA.buscarPorNombre(nombre);
-                    if(a==null){
+                    if (a == null) {
                         System.out.println("El autor no existe");
-                    }
-                    else{
+                    } else {
                         System.out.println(a);
                     }
                     presioneTecla();
@@ -56,33 +58,53 @@ public class LibreriaService {
                     System.out.println("Ingrese el ISBN del libro a buscar: ");
                     Long is = scan.nextLong();
                     Libro l = servL.buscarPorId(is);
-                    if(l==null){
+                    if (l == null) {
                         System.out.println("El libro no existe");
-                    }
-                    else{
+                    } else {
                         System.out.println(l);
                     }
                     presioneTecla();
                     menu();
                     break;
                 case 3:
-              
+                    System.out.println("Ingrese el titulo del libro a buscar: ");
+                    String tit = scan.next();
+                    Libro l1 = servL.buscarPorNombre(tit);
+                    if (l1 == null) {
+                        System.out.println("El libro no existe");
+                    } else {
+                        System.out.println(l1);
+                    }
                     presioneTecla();
                     menu();
                     break;
                 case 4:
-               
+                    System.out.println("Ingrese el autor para buscar sus libros: ");
+                    String aut = scan.next();
+                    Libro l2 = servL.buscarPorAutor(aut);
+                    if (l2 == null) {
+                        System.out.println("El libro no existe");
+                    } else {
+                        System.out.println(l2);
+                    }
                     presioneTecla();
                     menu();
                     break;
                 case 5:
-                
+                    System.out.println("Ingrese la editorial para buscar sus libros: ");
+                    String ed = scan.next();
+                    Libro l3 = servL.buscarPorEditorial(ed);
+                    if (l3 == null) {
+                        System.out.println("El libro no existe");
+                    } else {
+                        System.out.println(l3);
+                    }
                     presioneTecla();
                     menu();
                     break;
-                case 6:         
-                   break;
-                
+                case 6:
+                    break;
+
                 default:
                     System.out.println("Opcion incorrecta!!");
                     presioneTecla();

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package libreria.servicios;
 
 import java.util.List;
@@ -31,8 +27,8 @@ public class LibroService {
         AutorService servA = new AutorService();
         EditorialService servE = new EditorialService();
         try {
-//            System.out.println("Ingrese el ISDN del libro");
-//            libro.setIsbn(scan.nextLong());
+            System.out.println("Ingrese el ISDN del libro");
+            libro.setIsbn(scan.nextLong());
             System.out.println("Ingrese el titulo del libro");
             libro.setTitulo(scan.next());
             System.out.println("Ingrese el año");
@@ -73,7 +69,32 @@ public class LibroService {
         try {
             return DAO.buscarPorId(isbn);
         } catch (Exception e) {
-            System.out.println("Error al buscar libro " + e.getMessage());
+            System.out.println("Error al buscar libro por isbn" + e.getMessage());
+            return null;
+        }
+    }
+
+    public Libro buscarPorNombre(String nombre) {
+        try {
+            return DAO.buscarPorNombre(nombre);
+        } catch (Exception e) {
+            System.out.println("Error al buscar libro por titulo " + e.getMessage());
+            return null;
+        }
+    }
+        public Libro buscarPorAutor(String nombre) {
+        try {
+            return DAO.buscarPorAutor(nombre);
+        } catch (Exception e) {
+            System.out.println("Error al buscar libro por autor " + e.getMessage());
+            return null;
+        }
+    }
+        public Libro buscarPorEditorial(String nombre) {
+        try {
+            return DAO.buscarPorAutor(nombre);
+        } catch (Exception e) {
+            System.out.println("Error al buscar libro por editorial " + e.getMessage());
             return null;
         }
     }
