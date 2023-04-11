@@ -45,7 +45,7 @@ public class LibreriaService {
                 case 1:
                     System.out.println("Ingrese en nombre del autor a buscar: ");
                     String nombre = scan.next();
-                    Autor a = servA.buscarPorNombre(nombre);
+                    Autor a = servA.buscarPorId(1);
                     if (a == null) {
                         System.out.println("El autor no existe");
                     } else {
@@ -56,7 +56,9 @@ public class LibreriaService {
                     break;
                 case 2:
                     System.out.println("Ingrese el ISBN del libro a buscar: ");
+                    
                     Long is = scan.nextLong();
+                    
                     Libro l = servL.buscarPorId(is);
                     if (l == null) {
                         System.out.println("El libro no existe");

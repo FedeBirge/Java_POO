@@ -57,7 +57,7 @@ public class DAO<T> {
             em.merge(objeto);
             em.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("Eror al editar --> " + e.getMessage());
+            System.out.println("Error al editar --> " + e.getMessage());
         } finally {
             desconectar();
         }
