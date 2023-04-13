@@ -48,7 +48,6 @@ public class LibreriaService {
             switch (op) {
                 case 1:
                     System.out.println("CREAR CLIENTE");
-
                     servC.crearCliente();
                     presioneTecla();
                     menu();
@@ -56,7 +55,6 @@ public class LibreriaService {
                 case 2:
                     System.out.println("REGISTRO DE UN PRESTAMO");
                     servP.crearPrestamo();
-
                     presioneTecla();
                     menu();
                     break;
@@ -77,7 +75,8 @@ public class LibreriaService {
                         System.out.println("EL cliente no existe");
                     }
                     else{
-                        System.out.println(servP.buscarPrestamosDNICliente(cl.getDoc()));
+                        servP.imprimirPrestamos(servP.buscarPrestamosDNICliente(cl.getDoc()));
+                        
                     }
                     presioneTecla();
                     menu();

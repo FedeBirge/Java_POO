@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package libreria.servicios;
 
 import java.time.LocalDate;
@@ -66,7 +62,7 @@ public class PrestamoService {
             System.out.println(prestamo.getFechaDevolucion());
             System.out.println("Ingrese el DNI del cliente:");
             Long dni = scan.nextLong();
-            Cliente cl = servCliente.buscarPorDNI(dni);           
+            Cliente cl = servCliente.buscarPorDNI(dni);
             if (cl == null) {
                 cl = servCliente.crearCliente();
             }
@@ -80,11 +76,11 @@ public class PrestamoService {
                 } else {
                     lib.setEjemPrestados(lib.getEjemPrestados() + 1);
                     lib.setEjemRestantes(lib.getEjemRestantes() - 1);
-                    
+
                 }
             } while (lib == null);
             prestamo.setLibro(lib);
-            DAO.guardarPrestamo(prestamo);          
+            DAO.guardarPrestamo(prestamo);
             return prestamo;
         } catch (Exception e) {
             System.out.println("Error al crear prestamo " + e.getMessage());
@@ -145,6 +141,8 @@ public class PrestamoService {
         }
     }
 
+    
+
     public List<Prestamo> listarPrestamos() {
         try {
             return DAO.listarPrestamos();
@@ -152,6 +150,19 @@ public class PrestamoService {
             System.out.println("Error al listar prestamo " + e.getMessage());
             e.printStackTrace();
             return null;
+        }
+    }
+    public void  imprimirPrestamos(List<Prestamo> pres) {
+        try {
+            for (Prestamo pre : pres) {
+                System.out.println(pres);
+                
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al listar prestamo " + e.getMessage());
+            e.printStackTrace();
+
         }
     }
 

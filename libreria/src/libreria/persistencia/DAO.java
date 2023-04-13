@@ -67,11 +67,11 @@ public class DAO<T> {
     protected void eliminar(T objeto) {
         try {
             conectar();
-            em.getTransaction().begin();
-            em.remove(objeto);
+            em.getTransaction().begin();           
+            em.remove( em.merge(objeto));
             em.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("Eror al editar --> " + e.getMessage());
+            System.out.println("Error al elimiar --> " + e.getMessage());
         } finally {
             desconectar();
         }

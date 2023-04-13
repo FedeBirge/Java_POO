@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package libreria.persistencia;
 
 import java.util.List;
@@ -41,7 +37,7 @@ public class EditorialDAO extends DAO<Editorial> {
     public Editorial buscarPorNombre(String nombre) throws Exception {
         conectar();
         Editorial editorial = null;
-        editorial = (Editorial) em.createQuery("SELECT e FROM  e WHERE e.nombre LIKE :nombre").setParameter("nombre", nombre).getSingleResult();
+        editorial = (Editorial) em.createQuery("SELECT e FROM Editorial e WHERE e.nombre LIKE :nombre").setParameter("nombre", nombre).getSingleResult();
         desconectar();
         return editorial;
     }
