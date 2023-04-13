@@ -2,7 +2,11 @@ package libreria.servicios;
 
 import java.util.Scanner;
 import libreria.entidades.Autor;
+
+import libreria.entidades.Cliente;
+import libreria.entidades.Editorial;
 import libreria.entidades.Libro;
+
 
 /**
  *
@@ -10,10 +14,10 @@ import libreria.entidades.Libro;
  */
 public class LibreriaService {
 
-    private Scanner scan = new Scanner(System.in).useDelimiter("\n");
+    private final Scanner scan = new Scanner(System.in).useDelimiter("\n");
 
     public LibreriaService() {
-
+        
     }
 
     public void presioneTecla() {
@@ -25,86 +29,60 @@ public class LibreriaService {
     public void menu() throws Exception {
         AutorService servA = new AutorService();
         LibroService servL = new LibroService();
-
+        ClienteService servC = new ClienteService();
+        PrestamoService servP = new PrestamoService();
         try {
 
             System.out.println("<*************** MENÚ JPA ***************>");
             System.out.println("");
-            System.out.println("1. Búsqueda de un Autor por nombre");
-            System.out.println("2. Búsqueda de un libro por ISBN.");
-            System.out.println("3. Búsqueda de un libro por Título.");
-            System.out.println("4. Búsqueda de un libro/s por nombre de Autor.");
-            System.out.println("5. Búsqueda de un libro/s por nombre de Editorial");
+            System.out.println("1. Creación de un Cliente nuevo");
+            System.out.println("2. Registrar el préstamo de un libro");
+            System.out.println("3. Devolución de un libro");
+            System.out.println("4. Búsqueda de todos los préstamos de un Cliente.");
 
-            System.out.println("6. Salir");
+            System.out.println("5. Salir");
             System.out.println("");
             System.out.print("Ingrese una opcion: ");
             System.out.println("");
             int op = scan.nextInt();
             switch (op) {
                 case 1:
-                    System.out.println("Ingrese en nombre del autor a buscar: ");
-                    String nombre = scan.next();
-                    Autor a = servA.buscarPorId(1);
-                    if (a == null) {
-                        System.out.println("El autor no existe");
-                    } else {
-                        System.out.println(a);
-                    }
+                    System.out.println("CREAR CLIENTE");
+
+                    servC.crearCliente();
                     presioneTecla();
                     menu();
                     break;
                 case 2:
-                    System.out.println("Ingrese el ISBN del libro a buscar: ");
-                    
-                    Long is = scan.nextLong();
-                    
-                    Libro l = servL.buscarPorId(is);
-                    if (l == null) {
-                        System.out.println("El libro no existe");
-                    } else {
-                        System.out.println(l);
-                    }
+                    System.out.println("REGISTRO DE UN PRESTAMO");
+                    servP.crearPrestamo();
+
                     presioneTecla();
                     menu();
                     break;
                 case 3:
-                    System.out.println("Ingrese el titulo del libro a buscar: ");
-                    String tit = scan.next();
-                    Libro l1 = servL.buscarPorNombre(tit);
-                    if (l1 == null) {
-                        System.out.println("El libro no existe");
-                    } else {
-                        System.out.println(l1);
-                    }
+                    System.out.println("DEVOLUCION DE UN LIBRO");
+                    System.out.println("Indique el numero de prestamo: ");
+                    servP.eliminarPorId(scan.nextLong());
                     presioneTecla();
                     menu();
                     break;
                 case 4:
-                    System.out.println("Ingrese el autor para buscar sus libros: ");
-                    String aut = scan.next();
-                    Libro l2 = servL.buscarPorAutor(aut);
-                    if (l2 == null) {
-                        System.out.println("El libro no existe");
-                    } else {
-                        System.out.println(l2);
+                    System.out.println("PRESTAMOS DE UN CLIENTE ");
+                    System.out.println("");
+                    System.out.println("Indique el documento del cliente: ");
+                    Long dni = scan.nextLong();
+                    Cliente cl = servC.buscarPorDNI(dni);
+                    if (cl == null){
+                        System.out.println("EL cliente no existe");
+                    }
+                    else{
+                        System.out.println(servP.buscarPrestamosDNICliente(cl.getDoc()));
                     }
                     presioneTecla();
                     menu();
                     break;
                 case 5:
-                    System.out.println("Ingrese la editorial para buscar sus libros: ");
-                    String ed = scan.next();
-                    Libro l3 = servL.buscarPorEditorial(ed);
-                    if (l3 == null) {
-                        System.out.println("El libro no existe");
-                    } else {
-                        System.out.println(l3);
-                    }
-                    presioneTecla();
-                    menu();
-                    break;
-                case 6:
                     break;
 
                 default:

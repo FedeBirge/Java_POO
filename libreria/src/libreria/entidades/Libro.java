@@ -6,6 +6,7 @@ package libreria.entidades;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -25,9 +26,9 @@ private Integer ejemplares;
 private Integer ejemPrestados;
 private Integer ejemRestantes;
 private Boolean alta=Boolean.TRUE;
-@ManyToOne
+@ManyToOne(cascade=CascadeType.PERSIST)
 private Autor autor;
-@ManyToOne
+@ManyToOne (cascade=CascadeType.PERSIST)
 private Editorial editorial;
 
     public Libro() {

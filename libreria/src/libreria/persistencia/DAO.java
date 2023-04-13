@@ -43,7 +43,7 @@ public class DAO<T> {
             em.persist(objeto);
             em.getTransaction().commit();
         } catch (Exception e) {
-            System.out.println("Eror al guardar --> " + e.getMessage());
+            System.out.println("Ereor al guardarDAO --> " + e.getMessage());
         } finally {
             desconectar();
         }

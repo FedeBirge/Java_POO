@@ -34,7 +34,7 @@ public class EditorialDAO extends DAO<Editorial> {
     public Editorial buscarPorId(Integer id) throws Exception {
         conectar();
         Editorial editorial = null;
-        editorial = (Editorial) em.createQuery("SELECT e FROM Editorial e WHERE e.id LIKE :id").setParameter("id", id).getSingleResult();
+        editorial = (Editorial) em.createQuery("SELECT e FROM Editorial e WHERE e.id LIKE :id").setParameter("id", id.toString()).getSingleResult();
         desconectar();
         return editorial;
     }

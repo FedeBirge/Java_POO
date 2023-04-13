@@ -28,7 +28,14 @@ public class ClienteDAO extends DAO{
     public Cliente buscarPorId(Long id) throws Exception {
         conectar();
         Cliente cliente = null;
-        cliente = (Cliente) em.createQuery("SELECT c FROM Cliente c WHERE c.id LIKE :id").setParameter("id", id).getSingleResult();
+        cliente = (Cliente) em.createQuery("SELECT c FROM Cliente c WHERE c.id LIKE :id").setParameter("id", id.toString()).getSingleResult();
+        desconectar();
+        return cliente;
+    }
+     public Cliente buscarPorDNI(Long dni) throws Exception {
+        conectar();
+        Cliente cliente = null;
+        cliente = (Cliente) em.createQuery("SELECT c FROM Cliente c WHERE c.doc = :doc").setParameter("doc", dni).getSingleResult();
         desconectar();
         return cliente;
     }

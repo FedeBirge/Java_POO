@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Prestamo implements Serializable {
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private LocalDate fechaPrestamo;

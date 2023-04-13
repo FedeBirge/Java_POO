@@ -30,10 +30,16 @@ public class PrestamoDAO extends DAO {
 
     public Prestamo buscarPorId(Long id) throws Exception {
         conectar();
-        Prestamo prestamo = null;
-        prestamo = (Prestamo) em.createQuery("SELECT p FROM Prestamo p WHERE p.isbn LIKE :id").setParameter("id", id).getSingleResult();
+        Prestamo prestamo = null;                               
+        prestamo = (Prestamo) em.createQuery("SELECT p FROM Prestamo p WHERE p.id LIKE :id").setParameter("id", id.toString()).getSingleResult();
         desconectar();
         return prestamo;
+    }
+      public List<Prestamo> buscarPrestamosDNICliente(Long doc) throws Exception {
+        conectar(); 
+        List<Prestamo> prestamos = em.createQuery("SELECT p FROM Prestamo p WHERE p.cliente.doc LIKE :doc ").setParameter("doc", doc.toString()).getResultList();
+        desconectar();
+        return prestamos;
     }
 //     public Prestamo buscarPorNombre(String nombre) throws Exception {
 //        conectar();
@@ -55,7 +61,7 @@ public class PrestamoDAO extends DAO {
 //        prestamo = (Prestamo) em.createQuery("SELECT a FROM Prestamo a WHERE a.editorial.nombre LIKE :nombre").setParameter("nombre", nombre).getSingleResult();
 //        desconectar();
 //        return prestamo;
-//    }
+//    } 
     
     
 }
