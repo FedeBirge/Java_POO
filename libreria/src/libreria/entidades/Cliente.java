@@ -13,7 +13,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class Cliente implements Serializable {
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Long doc;
